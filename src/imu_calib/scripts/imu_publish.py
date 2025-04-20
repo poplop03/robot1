@@ -3,7 +3,7 @@ import rospy
 from sensor_msgs.msg import Imu
 from mpu6050 import mpu6050
 import math
-
+#programmed by Linh
 def main():
     # Initialize the ROS node
     rospy.init_node('mpu6050_publisher', anonymous=True)

@@ -1,0 +1,2 @@
+hoverboard-driver:imu_calib
+-DCATKIN_DEVEL_PREFIX=/home/duc/ROS1/robot1/devel -DCMAKE_INSTALL_PREFIX=/home/duc/ROS1/robot1/install -G Unix Makefiles

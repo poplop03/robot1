@@ -1,0 +1,9 @@
+<launch>
+  <!-- Launch the do_calib node to perform accelerometer calibration -->
+  <node name="do_calib_node" pkg="imu_calib" type="do_calib" output="screen">
+    <!-- Adjust these parameters as needed -->
+    <param name="imu_topic" value="/imu/data_raw" />
+    <param name="num_measurements" value="500" />
+    <param name="reference_acceleration" value="9.81" />
+  </node>
+</launch>

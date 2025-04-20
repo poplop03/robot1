@@ -1,0 +1,9 @@
+
+<launch>
+  <!-- Launch the apply_calib node to apply calibration to the IMU data -->
+  <node name="apply_calib_node" pkg="imu_calib" type="apply_calib" output="screen">
+    <!-- This node will use the saved calibration parameters (e.g., from calib.yaml) -->
+    <param name="imu_topic" value="/imu" />
+    <param name="calib_file" value="$(find imu_calib)/src/calib.yaml" />
+  </node>
+</launch>

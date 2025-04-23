@@ -1,0 +1,12 @@
+<launch>
+  <!-- Launch IMU -->
+  <include file="$(find imu_calib)/launch/imu_init_and_calib.launch" />
+
+  <!-- Launch Hoverboard driver -->
+  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
+
+  <!-- Launch Hector SLAM -->
+  <include file="$(find hector_slam_launch)/launch/tutorial.launch" />
+
+  <!-- Add any static transforms, RViz, etc. here -->
+</launch>

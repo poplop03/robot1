@@ -2,6 +2,9 @@
   <!-- Launch IMU -->
   <include file="$(find imu_calib)/launch/imu_init_and_calib.launch" />
 
+  <!-- Launch lidar -->
+  <include file="$(find ydlidar_ros_driver)/launch/X2.launch" />
+
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
 

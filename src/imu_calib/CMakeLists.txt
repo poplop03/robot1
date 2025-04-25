@@ -7,7 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen REQUIRED)
 pkg_check_modules(YAML yaml-cpp)
 
 ###################################

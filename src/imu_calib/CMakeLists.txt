@@ -7,7 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen REQUIRED)
 pkg_check_modules(YAML yaml-cpp)
 
 ###################################
@@ -28,7 +28,7 @@ catkin_package(
 include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
-  ${Eigen3_INCLUDE_DIRS}
+  ${Eigen_INCLUDE_DIRS}
   ${YAML_INCLUDEDIR}
 )
 
@@ -73,6 +73,3 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h"
   PATTERN ".svn" EXCLUDE
 )
-
-
-

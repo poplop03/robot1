@@ -50,10 +50,6 @@
     -->
     <param name="tf_map_scanmatch_transform_frame_name" value="$(arg tf_map_scanmatch_transform_frame_name)" />
   </node>
-    
-<node pkg="tf" type="static_transform_publisher"
-      name="base_frame_to_base_footprint"
-      args="0 0 0 0 0 0 base_frame base_footprint 100"/>
 
   <!--<node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_footprint laser_frame 100"/>-->
 </launch>

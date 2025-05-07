@@ -1,6 +1,6 @@
 <launch>
-  <!-- Load the URDF into the parameter server -->
-  <param name="robot_description" command="$(find urdf2)/urdf/urdf2.urdf" />
+  <!-- Correct way to load a static URDF file -->
+  <param name="robot_description" textfile="$(find urdf2)/urdf/urdf2.urdf" />
 
   <!-- Start the robot_state_publisher -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
@@ -8,6 +8,4 @@
   <!-- Optional: dummy joint state publisher -->
   <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /-->
 
-  <!-- Optional: RViz -->
-  <!--node name="rviz" pkg="rviz" type="rviz" /-->
 </launch>

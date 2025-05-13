@@ -1,7 +1,7 @@
 # The frequency, in Hz, at which the filter will output a position estimate. Note that the filter will not begin
 # computation until it receives at least one message from one of the inputs. It will then run continuously at the
 # frequency specified here, regardless of whether it receives more measurements. Defaults to 30 if unspecified.
-frequency: 40
+frequency: 30
 
 silent_tf_failure: false
 # The period, in seconds, after which we consider a sensor to have timed out. In this event, we carry out a predict
@@ -22,7 +22,7 @@ transform_time_offset: 0.0
 
 # Use this parameter to provide specify how long the tf listener should wait for a transform to become available. 
 # Defaults to 0.0 if unspecified.
-transform_timeout: 0.1
+transform_timeout: 0.0
 
 # If you're having trouble, try setting this to true, and then echo the /diagnostics_agg topic to see if the node is
 # unhappy with any settings or data.
@@ -66,7 +66,7 @@ permit_corrected_publication: false
 #         estimation node from robot_localization! However, that instance should *not* fuse the global data.
 map_frame: map              # Defaults to "map" if unspecified
 odom_frame: odom            # Defaults to "odom" if unspecified
-base_link_frame: base_footprint  # Defaults to "base_link" if unspecified
+base_link_frame: base_link  # Defaults to "base_link" if unspecified
 world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # The filter accepts an arbitrary number of inputs from each input message type (nav_msgs/Odometry,

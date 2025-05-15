@@ -20,7 +20,7 @@ find_package(catkin REQUIRED
     rosconsole
     roscpp
     sensor_msgs
-    sparse_bundle_adjustment
+    #sparse_bundle_adjustment
     tf2
     tf2_ros
     tf

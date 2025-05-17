@@ -21,10 +21,10 @@ class ComplementaryFilterNode(object):
         self.last_time = rospy.Time.now()
 
         # Subscribe to the calibrated IMU data on /corrected
-        self.sub = rospy.Subscriber("/corrected", Imu, self.imu_callback)
+        self.sub = rospy.Subscriber("/imu/corrected", Imu, self.imu_callback)
         # Publisher for the filtered orientation
-        self.pub = rospy.Publisher("/imu_filtered", Imu, queue_size=10)
-        rospy.loginfo("Complementary Filter Node Initialized, subscribing to /corrected.")
+        self.pub = rospy.Publisher("/imu/complement_filtered", Imu, queue_size=10)
+        rospy.loginfo("Complementary Filter Node Initialized, subscribing to /imu/corrected.")
 
     def imu_callback(self, msg):
         # Compute the time delta

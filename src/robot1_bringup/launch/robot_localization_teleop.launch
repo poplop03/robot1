@@ -5,7 +5,7 @@
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
 
-  <!-- Launch Hector SLAM -->
+  <!-- Launch robot_localization -->
   <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
 
   <!-- Add any static transforms, RViz, etc. here -->

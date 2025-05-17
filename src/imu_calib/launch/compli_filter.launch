@@ -1,6 +1,6 @@
 <launch>
   <!-- 3. Launch the compli_filter_node with the _alpha parameter -->
-  <node pkg="imu_calib" type="compli_filter_node.py" name="compli_filter_node" output="screen>
+  <node pkg="imu_calib" type="compli_filter_node.py" name="compli_filter_node" output="screen">
     <param name="alpha" value="0.98" />
   </node>
 </launch>

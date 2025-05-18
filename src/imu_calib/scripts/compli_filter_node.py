@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+
 import rospy
 import math
 import tf
@@ -61,7 +62,9 @@ class ComplementaryFilterNode(object):
 
         # Create a new IMU message with the filtered orientation.
         filtered_msg = Imu()
-        filtered_msg.header = msg.header  # Preserve timestamp and frame_id
+        filtered_msg.header.stamp = msg.header.stamp  # keep the same time
+        filtered_msg.header.frame_id = "imu_link"     # override the frame_id
+        
         filtered_msg.orientation.x = quat[0]
         filtered_msg.orientation.y = quat[1]
         filtered_msg.orientation.z = quat[2]
@@ -75,14 +78,14 @@ class ComplementaryFilterNode(object):
         self.pub.publish(filtered_msg)
         
         ###################################################
-        br = tf.TransformBroadcaster()
-        br.sendTransform(
-            (0, 0, 0),  # IMU position (assuming it's at the origin of base_link)
-            quat,  # IMU orientation from complementary filter
-            rospy.Time.now(),
-            "imu_link",  # Child frame
-            "base_link"  # Parent frame (change this if needed)
-        )
+        #br = tf.TransformBroadcaster()
+        #br.sendTransform(
+        #    (0, 0, 0),  # IMU position (assuming it's at the origin of base_link)
+        #    quat,  # IMU orientation from complementary filter
+        #    rospy.Time.now(),
+        #    "imu_link",  # Child frame
+        #    "base_link"  # Parent frame (change this if needed)
+        #)
         ###################################################
         
 

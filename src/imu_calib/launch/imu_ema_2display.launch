@@ -9,7 +9,7 @@
   </node>
 
   <node pkg="imu_calib" type="ema_lp_filter.py" name="ema_lp_filter" output="screen">
-    <param name="alpha" value="0.5" />
+    <param name="alpha" value="0.9" />
   </node>
 
   <node pkg="imu_calib" type="read_data_imu1.py" name="read_data_imu1" output="screen">

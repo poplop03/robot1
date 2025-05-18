@@ -10,7 +10,7 @@ def main():
     rospy.init_node('mpu6050_publisher', anonymous=True)
     
     # Create a publisher for sensor_msgs/Imu messages on the /imu topic
-    imu_pub = rospy.Publisher('/imu/raw', Imu, queue_size=10)
+    imu_pub = rospy.Publisher('/imu/corrected', Imu, queue_size=10)
     
     # Initialize the MPU6050 sensor (make sure the correct I2C address is used)
     mpu = mpu6050(0x68)

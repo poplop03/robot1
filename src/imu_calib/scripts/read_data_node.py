@@ -10,7 +10,7 @@ class ImuPlotPublisher:
         rospy.init_node('imu_plot_publisher')
 
         # Subscribe to the filtered IMU data
-        self.sub = rospy.Subscriber('/imu/complement_filtered', Imu, self.imu_callback)
+        self.sub = rospy.Subscriber('/imu/corrected', Imu, self.imu_callback)
 
         # Publishers for orientation (Euler angles)
         self.roll_pub  = rospy.Publisher('/imu/roll',  Float32, queue_size=10)

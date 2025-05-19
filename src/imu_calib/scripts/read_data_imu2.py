@@ -8,17 +8,17 @@ class ImuRawSplitterNode:
     def __init__(self):
         rospy.init_node('imu_raw_splitter_node2')
 
-        self.sub = rospy.Subscriber('/imu/ema_filtered', Imu, self.imu_callback)
+        self.sub = rospy.Subscriber('/imu/imu2', Imu, self.imu_callback)
 
         # Angular velocity
-        self.ang_x_pub = rospy.Publisher('/imu/ema/angular_velocity/x', Float32, queue_size=10)
-        self.ang_y_pub = rospy.Publisher('/imu/ema/angular_velocity/y', Float32, queue_size=10)
-        self.ang_z_pub = rospy.Publisher('/imu/ema/angular_velocity/z', Float32, queue_size=10)
+        self.ang_x_pub = rospy.Publisher('/imu/imu2/angular_velocity/x', Float32, queue_size=10)
+        self.ang_y_pub = rospy.Publisher('/imu/imu2/angular_velocity/y', Float32, queue_size=10)
+        self.ang_z_pub = rospy.Publisher('/imu/imu2/angular_velocity/z', Float32, queue_size=10)
 
         # Linear acceleration
-        self.acc_x_pub = rospy.Publisher('/imu/ema/linear_acceleration/x', Float32, queue_size=10)
-        self.acc_y_pub = rospy.Publisher('/imu/ema/linear_acceleration/y', Float32, queue_size=10)
-        self.acc_z_pub = rospy.Publisher('/imu/ema/linear_acceleration/z', Float32, queue_size=10)
+        self.acc_x_pub = rospy.Publisher('/imu/imu2/linear_acceleration/x', Float32, queue_size=10)
+        self.acc_y_pub = rospy.Publisher('/imu/imu2/linear_acceleration/y', Float32, queue_size=10)
+        self.acc_z_pub = rospy.Publisher('/imu/imu2/linear_acceleration/z', Float32, queue_size=10)
 
         rospy.loginfo("IMU Raw Splitter Node started (no orientation).")
 

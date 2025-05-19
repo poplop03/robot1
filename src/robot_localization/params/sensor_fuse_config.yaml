@@ -121,11 +121,11 @@ odom0_relative: false
 # For messages that have both pose and twist data, the parameter specifies to which part of the message we are applying
 # the thresholds.
 
-imu0: /imu/corrected
+imu0: /imu/butterfilter
 imu0_config: [false, false, false,
               false, false, false,
               false, false, false,
-              false, false, false,
+              false, false, true,
               false, false, false]
 imu0_nodelay: false
 imu0_differential: false

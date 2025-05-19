@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- 1. Launch the IMU publisher node -->
+  <node pkg="imu_calib" type="imu_publish.py" name="imu_publish" output="screen" />
+
+  <node pkg="imu_calib" type="apply_calib" name="apply_calib" output="screen">
+    <param name="calib_file" value="$(find imu_calib)/config/imu_calib.yaml" />
+    <remap from="raw" to="/imu/raw" />
+    <remap from="/corrected" to="/imu/corrected" />
+  </node>
+
+  <node pkg="imu_calib" type="imu_butterworth_filter_node.py" name="imu_butter_filter_node" output="screen">
+    <param name="sampling_rate" value="100.0"/>
+    <param name="cutoff_freq" value="1"/>
+    <param name="filter_order" value="2"/>
+  </node>
+
+</launch>

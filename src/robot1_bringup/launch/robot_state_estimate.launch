@@ -1,0 +1,9 @@
+<launch>
+  <!-- Launch IMU -->
+  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
+
+  <!-- Launch robot_localization -->
+  <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
+
+  <!-- Add any static transforms, RViz, etc. here -->
+</launch>

@@ -8,7 +8,7 @@ class ImuEmaFilterNode:
         rospy.init_node('imu_ema_filter_node')
 
         # Filter smoothing factor (adjustable via param)
-        self.alpha = rospy.get_param("~alpha", 0.1)
+        self.alpha = rospy.get_param("~alpha", 0.4)
 
         # Previous filtered values
         self.prev_ang_vel = [0.0, 0.0, 0.0]

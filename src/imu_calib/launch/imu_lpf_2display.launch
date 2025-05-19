@@ -21,6 +21,5 @@
 
   <node pkg="imu_calib" type="read_data_imu2.py" name="read_data_imu2" output="screen">
   </node>
-    <remap from="/imu/imu2" to="/imu/butterfilter" />
 
 </launch>

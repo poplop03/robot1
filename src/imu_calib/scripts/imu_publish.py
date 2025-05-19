@@ -12,12 +12,12 @@ def main():
     # Create a publisher for sensor_msgs/Imu messages on the /imu topic
     imu_pub = rospy.Publisher('/imu/raw', Imu, queue_size=10)
     
-    # Initialize the MPU6050 sensor (make sure the correct I2C address is used)
+    # Initialize the MPU6050 sensor (make sure the correct I2C a1ddress is used)
     mpu = mpu6050(0x68)
     
     # Set the loop rate (e.g., 100 Hz)
     rate = rospy.Rate(100)
-    
+    1
     while not rospy.is_shutdown():
         # Create an empty Imu message
         imu_msg = Imu()

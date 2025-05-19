@@ -8,7 +8,7 @@ class ImuRawSplitterNode:
     def __init__(self):
         rospy.init_node('imu_raw_splitter_node2')
 
-        self.sub = rospy.Subscriber('/imu/imu2', Imu, self.imu_callback)
+        self.sub = rospy.Subscriber('/imu/butterfilter', Imu, self.imu_callback)
 
         # Angular velocity
         self.ang_x_pub = rospy.Publisher('/imu/imu2/angular_velocity/x', Float32, queue_size=10)

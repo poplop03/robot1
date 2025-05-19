@@ -11,7 +11,7 @@
 
   <node pkg="imu_calib" type="imu_butterworth_filter_node.py" name="imu_butter_filter_node" output="screen">
     <param name="sampling_rate" value="100.0"/>
-    <param name="cutoff_freq" value="1"/>
+    <param name="cutoff_freq" value="3"/>
     <param name="filter_order" value="1"/>
   </node>
 

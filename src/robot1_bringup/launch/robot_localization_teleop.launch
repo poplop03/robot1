@@ -1,6 +1,6 @@
 <launch>
   <!-- Launch IMU -->
-  <include file="$(find imu_calib)/launch/imu_init_and_calib.launch" />
+  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
 
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />

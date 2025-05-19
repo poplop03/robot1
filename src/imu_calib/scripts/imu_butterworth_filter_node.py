@@ -52,7 +52,7 @@ class ImuButterFilterNode:
                 filtered.header.frame_id = "imu_link"
 
                 # Orientation unchanged
-                filtered.orientation = msg.orientation*deg_to_rad
+                filtered.orientation = msg.orientation
                 filtered.orientation_covariance = msg.orientation_covariance
 
                 # Angular velocity

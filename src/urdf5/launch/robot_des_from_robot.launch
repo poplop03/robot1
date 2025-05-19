@@ -1,7 +1,7 @@
 <launch>
-  <arg
-    name="model" />
-  <param
-    name="robot_description"
-    textfile="$(find urdf5)/urdf/urdf5.urdf" />
+  <!-- Load the URDF into the parameter server -->
+  <param name="robot_description" command="$(find urdf5)/urdf/urdf5.urdf" />
+
+  <!-- Run robot_state_publisher to publish TFs -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 </launch>

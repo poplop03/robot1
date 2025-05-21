@@ -1,4 +1,4 @@
-image: ~/ROS1/robot1/src/robot1_nav/map/map5.pgm
+image: /home/duc/ROS1/robot1/src/robot1_nav/map/map5.pgm
 resolution: 0.050000
 origin: [-100.000000, -100.000000, 0.000000]
 negate: 0

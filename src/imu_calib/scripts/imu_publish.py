@@ -37,7 +37,7 @@ def main():
 
         # Read gyroscope data from the sensor
         gyro_data = mpu.get_gyro_data()
-        imu_msg.angular_velocity.x = gyro_data['x']*deg_to_rad
+        imu_msg.angular_velocity.x = gyro_data['x']*deg_to_rad # converted to rad/s
         imu_msg.angular_velocity.y = gyro_data['y']*deg_to_rad
         imu_msg.angular_velocity.z = gyro_data['z']*deg_to_rad
 

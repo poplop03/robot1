@@ -5,7 +5,6 @@ from sensor_msgs.msg import Imu
 from scipy.signal import butter, lfilter_zi, lfilter
 import math
 
-deg_to_rad = math.pi / 180.0
 
 class ButterworthFilter:
     def __init__(self, cutoff, fs, order=2):
@@ -56,9 +55,9 @@ class ImuButterFilterNode:
                 filtered.orientation_covariance = msg.orientation_covariance
 
                 # Angular velocity
-                filtered.angular_velocity.x = self.filter.filter_ang(msg.angular_velocity.x*deg_to_rad, 0)
-                filtered.angular_velocity.y = self.filter.filter_ang(msg.angular_velocity.y*deg_to_rad, 1)
-                filtered.angular_velocity.z = self.filter.filter_ang(msg.angular_velocity.z*deg_to_rad, 2)
+                filtered.angular_velocity.x = self.filter.filter_ang(msg.angular_velocity.x, 0)
+                filtered.angular_velocity.y = self.filter.filter_ang(msg.angular_velocity.y, 1)
+                filtered.angular_velocity.z = self.filter.filter_ang(msg.angular_velocity.z, 2)
 
                 # Linear acceleration
                 filtered.linear_acceleration.x = self.filter.filter_acc(msg.linear_acceleration.x, 0)

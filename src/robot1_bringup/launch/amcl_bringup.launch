@@ -8,6 +8,9 @@
   <!-- Launch robot_localization -->
   <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
 
+  <!-- Launch lidar -->
+  <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
+
   <!-- Launch amcl -->
   <include file="$(find robot1_nav)/launch/navi.launch" />
 

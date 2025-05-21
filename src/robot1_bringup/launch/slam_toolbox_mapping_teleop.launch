@@ -12,7 +12,7 @@
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
   <!--Launch slam_toolbox-->
-  <include file="$(find slam_toolbox)/launch/robot1_slam_online_async.launch" />
+  <include file="$(find slam_toolbox)/launch/robot1_lifelong.launch" />
 
   <!-- Add any static transforms, RViz, etc. here -->
 </launch>

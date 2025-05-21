@@ -48,7 +48,7 @@ class ImuButterFilterNode:
                 msg = self.latest_msg
 
                 filtered = Imu()
-                filtered.header.stamp = rospy.Time.now()
+                filtered.header.stamp = msg.header.stamp
                 filtered.header.frame_id = "imu_link"
 
                 # Orientation unchanged

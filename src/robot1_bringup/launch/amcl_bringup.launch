@@ -9,7 +9,7 @@
   <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
 
   <!-- Launch amcl -->
-  <include file="$(find robot1_nav)/launch/amcl_nav.launch" />
+  <include file="$(find robot1_nav)/launch/navi.launch" />
 
   <!-- Add any static transforms, RViz, etc. here -->
 </launch>

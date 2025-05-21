@@ -1,6 +1,6 @@
 <launch>
 
-  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.062 0 0 0 base_footprint base_link 10000"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.062 0 0 0 base_footprint base_link 50"/>
 
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
     <rosparam command="load" file="$(find robot_localization)/params/sensor_fuse_config.yaml" />

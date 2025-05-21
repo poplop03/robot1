@@ -1,0 +1,24 @@
+<launch>
+
+  <!-- Launch IMU -->
+  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
+
+  <!-- Launch Hoverboard driver -->
+  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
+
+  <!--Launch robot_localization-->
+  <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
+
+  <!-- Launch lidar -->
+  <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
+
+  <!-- Gmapping SLAM -->
+  <node pkg="slam_gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <!-- Optional tuning -->
+    <param name="odom_frame" value="odom"/>
+    <param name="map_update_interval" value="2.0"/>
+    <param name="maxUrange" value="8.0"/>
+    <param name="particles" value="80"/>
+  </node>
+
+</launch>

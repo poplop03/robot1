@@ -13,7 +13,7 @@
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
   <!-- Gmapping SLAM -->
-  <node pkg="gmapping" type="gmapping" name="slam_gmapping" output="screen">
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
     <!-- Optional tuning -->
     <param name="odom_frame" value="odom"/>
     <param name="map_update_interval" value="2.0"/>

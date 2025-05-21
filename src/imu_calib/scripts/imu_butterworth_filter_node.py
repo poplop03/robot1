@@ -25,7 +25,7 @@ class ImuButterFilterNode:
     def __init__(self):
         rospy.init_node('imu_butter_filter_node')
 
-        self.fs = 60.0  # Fixed publish rate: 50 Hz
+        self.fs = 50.0  # Fixed publish rate: 50 Hz
         self.cutoff = rospy.get_param("~cutoff_freq", 5.0)
         self.order = rospy.get_param("~filter_order", 2)
 
@@ -42,7 +42,7 @@ class ImuButterFilterNode:
         self.latest_msg = msg
 
     def spin(self):
-        rate = rospy.Rate(60)  # 50 Hz loop
+        rate = rospy.Rate(50)  # 50 Hz loop
         while not rospy.is_shutdown():
             if self.latest_msg:
                 msg = self.latest_msg

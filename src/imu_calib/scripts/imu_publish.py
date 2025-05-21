@@ -4,7 +4,7 @@ import rospy
 from sensor_msgs.msg import Imu
 from mpu6050 import mpu6050
 import math
-#programmed by Linh
+#programmed by Linhs
 
 deg_to_rad = math.pi / 180.0
 

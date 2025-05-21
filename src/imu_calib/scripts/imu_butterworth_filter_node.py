@@ -42,7 +42,7 @@ class ImuButterFilterNode:
         self.latest_msg = msg
 
     def spin(self):
-        rate = rospy.Rate(50)  # 50 Hz loop
+        rate = rospy.Rate(60)  # 50 Hz loop
         while not rospy.is_shutdown():
             if self.latest_msg:
                 msg = self.latest_msg

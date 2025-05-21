@@ -5,6 +5,9 @@ from sensor_msgs.msg import Imu
 from mpu6050 import mpu6050
 import math
 #programmed by Linh
+
+deg_to_rad = math.pi / 180.0
+
 def main():
     # Initialize the ROS node
     rospy.init_node('mpu6050_publisher', anonymous=True)
@@ -34,9 +37,9 @@ def main():
 
         # Read gyroscope data from the sensor
         gyro_data = mpu.get_gyro_data()
-        imu_msg.angular_velocity.x = gyro_data['x']
-        imu_msg.angular_velocity.y = gyro_data['y']
-        imu_msg.angular_velocity.z = gyro_data['z']
+        imu_msg.angular_velocity.x = gyro_data['x']*deg_to_rad
+        imu_msg.angular_velocity.y = gyro_data['y']*deg_to_rad
+        imu_msg.angular_velocity.z = gyro_data['z']*deg_to_rad
 
         # Optional: if you don't provide orientation data,
         # set the first element of orientation_covariance to -1 to indicate unk>

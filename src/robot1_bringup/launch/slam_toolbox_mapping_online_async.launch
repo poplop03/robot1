@@ -1,4 +1,8 @@
 <launch>
+
+  <!-- robot description -->  
+  <include file="$(find urdf5)/launch/robot_des_from_robot.launch" />
+  
   <!-- Launch IMU -->
   <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
 

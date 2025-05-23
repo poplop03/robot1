@@ -75,6 +75,8 @@ class HoverboardControl:
         self.left_rpm = 0.0
         self.right_rpm = 0.0
 
+        self.prev_byte = 0  # Initialize prev_byte
+
     def cmd_vel_callback(self, msg):
         # Convert cmd_vel to wheel speeds (rad/s)
         linear_v = msg.linear.x
@@ -129,7 +131,7 @@ class HoverboardControl:
 
     def protocol_recv(self, byte):
         # Convert byte to integer
-        byte_val = ord(byte) if isinstance(byte, str) else byte
+        byte_val = ord(byte) if isinstance(byte, str) else byte[0]  # Ensure byte_val is an integer
 
         # Build start frame
         start_frame = (byte_val << 8) | self.prev_byte

@@ -75,7 +75,10 @@ class HoverboardControl:
         self.left_rpm = 0.0
         self.right_rpm = 0.0
 
+        # Initialize protocol-related attributes
         self.prev_byte = 0  # Initialize prev_byte
+        self.msg_len = 0    # Initialize message length
+        self.msg_buffer = []  # Initialize message buffer
 
     def cmd_vel_callback(self, msg):
         # Convert cmd_vel to wheel speeds (rad/s)

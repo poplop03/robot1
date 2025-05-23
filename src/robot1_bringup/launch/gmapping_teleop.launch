@@ -15,6 +15,9 @@
   <!-- Launch lidar -->
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
+  <!-- Launch lidar cut -->
+  <include file="$(find robot1_bringup)/launch/lidar_cut.launch" />
+
   <!-- Gmapping SLAM -->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
     <!-- Optional tuning -->

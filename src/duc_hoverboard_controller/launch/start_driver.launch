@@ -4,5 +4,5 @@
     <rosparam file="$(find duc_hoverboard_controller)/config/hardware.yaml" command="load" />
 
     <!-- Hoverboard control node -->
-    <node pkg="hoverboard_control" type="hoverboard_controller.py" name="hoverboard_control" output="screen" />
+    <node pkg="duc_hoverboard_controller" type="hoverboard_controller.py" name="duc_hoverboard_controller" output="screen" />
 </launch>

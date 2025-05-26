@@ -19,6 +19,6 @@
   <include file="$(find laser_filters)/launch/robot1_angle_filter.launch" />
 
   <!-- Gmapping SLAM -->
-  <include file="$(find robot1_bringup)/launch/gmapping_teleop.launch" />
+  <include file="$(find robot1_bringup)/launch/gmapping_config.launch" />
   
 </launch>

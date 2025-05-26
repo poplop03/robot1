@@ -32,5 +32,6 @@
     <param name="range_max"    type="double" value="8.0" />
     <!-- frequency is invalid, External PWM control speed -->
     <param name="frequency"    type="double" value="10.0"/>
+    <remap from="scan" to="scan_ydlidar" />
   </node>
 </launch>

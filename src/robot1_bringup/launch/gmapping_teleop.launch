@@ -25,7 +25,7 @@ scan
     <param name="map_update_interval" value="2.0"/>
     <param name="maxUrange" value="8.0"/>
     <param name="particles" value="80"/>
-    <remap from="/scan" to="/scan_filtered" />
+    <remap from="/scan" to="/scan_ydlidar" />
   </node>
   
 </launch>

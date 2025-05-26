@@ -16,7 +16,7 @@
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
   <!-- Launch lidar cut -->
-  <include file="$(find robot1_bringup)/launch/lidar_cut.launch" />
+  <include file="$(find laser_filters)/examples/robot1_angle_filter.launch" />
 
   <!-- Gmapping SLAM -->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
@@ -26,5 +26,5 @@
     <param name="maxUrange" value="8.0"/>
     <param name="particles" value="80"/>
   </node>
-
+  
 </launch>

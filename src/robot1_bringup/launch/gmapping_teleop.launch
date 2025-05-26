@@ -17,15 +17,8 @@
 
   <!-- Launch lidar cut -->
   <include file="$(find laser_filters)/launch/robot1_angle_filter.launch" />
-scan
+
   <!-- Gmapping SLAM -->
-  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-    <!-- Optional tuning -->
-    <param name="odom_frame" value="odom"/>
-    <param name="map_update_interval" value="1.0"/>
-    <param name="maxUrange" value="8.0"/>
-    <param name="particles" value="80"/>
-    <remap from="/scan" to="/scan_ydlidar" />
-  </node>
+  <include file="$(find robot1_bringup)/launch/gmapping_teleop.launch" />
   
 </launch>

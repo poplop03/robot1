@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="scan_topic"  default="/scan/front"/>
+  <arg name="scan_topic"  default="/scan_front"/>
 
   <!-- robot description -->  
   <include file="$(find urdf5)/launch/robot_des_from_robot.launch" />

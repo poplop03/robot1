@@ -44,7 +44,7 @@
     <param name="xmax" value="10.0" />
     <param name="ymax" value="10.0" />
     <param name="delta" value="0.05" />
-    <remap from="/scan" to="/scan_ydlidar" />
+    <remap from="/scan" to="/scan_filtered" />
 
   </node>
 </launch>

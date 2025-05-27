@@ -1,27 +1,5 @@
 <launch>
 
-  <!-- robot description -->  
-  <include file="$(find urdf5)/launch/robot_des_from_robot.launch" />
-  
-  <!-- Launch IMU -->
-  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
-
-  <!-- Launch Hoverboard driver -->
-  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
-
-  <!--Launch robot_localization-->
-  <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
-
-  <!-- Launch lidar -->
-  <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
-
-  <!-- Launch lidar cut -->
-  <include file="$(find laser_filters)/launch/robot1_angle_filter.launch" />
-
-  <!-- launch the camera
-  <include file="$(find freenect_launch)/launch/freenect.launch">
-    <arg name="depth_registration" value="true" />
-  </include> -->
 
   <!-- Rtab_map -->
   <include file="$(find rtabmap_bringup)/launch/rtabmap.launch" />

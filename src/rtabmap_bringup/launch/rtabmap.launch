@@ -28,7 +28,7 @@
           <remap from="scan" to="/scan_filtered"/>
           <remap from="rgbd_image" to="rgbd_image"/>
 
-          <param name="queue_size" type="int" value="10"/>
+          <param name="queue_size" type="int" value="1000"/>
 
           <!-- RTAB-Map's parameters -->
           <param name="RGBD/NeighborLinkRefining" type="string" value="true"/>

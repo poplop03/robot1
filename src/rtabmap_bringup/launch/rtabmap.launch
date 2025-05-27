@@ -1,7 +1,7 @@
 <launch>
   <group ns="rtabmap">
 
-    <!-- Use RGBD synchronization -->
+    <!-- Use RGBD synchronization DUC --> 
     <!-- Here is a general example using a standalone nodelet, 
          but it is recommended to attach this nodelet to nodelet 
          manager of the camera to avoid topic serialization -->

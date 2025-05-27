@@ -12,7 +12,7 @@
       <!-- Remap topics -->
       <remap from="odom" to="/odom"/>
       <remap from="scan" to="/scan_filtered"/>
-      <remap from="cloud" to="/camera/depth_registered/points"/>
+      <remap from="scan_cloud" to="/camera/depth_registered/points"/>
 
       <!-- General params -->
       <param name="queue_size" type="int" value="30"/>

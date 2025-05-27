@@ -24,6 +24,6 @@
   </include> -->
 
   <!-- Rtab_map -->
-  <include file="$(find rtabmap_bringup)/launch/rtabmap1.launch" />
+  <include file="$(find rtabmap_bringup)/launch/rtabmap.launch" />
   
 </launch>

@@ -14,7 +14,7 @@
       <!-- Should be true for not synchronized camera topics 
            (e.g., false for kinectv2, zed, realsense, true for xtion, kinect360)-->
       <param name="approx_sync"       value="true"/> 
-      <param name="approx_sync_max_interval" value="0.5"/>
+      <!-- <param name="approx_sync_max_interval" value="0.5"/> -->
     </node> 
 
     <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="--delete_db_on_start">

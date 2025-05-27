@@ -1,5 +1,6 @@
 <launch>
   <group ns="rtabmap">
+    <!-- DUC -->
 
     <!-- Use RGBD synchronization -->
     <!-- Here is a general example using a standalone nodelet, 

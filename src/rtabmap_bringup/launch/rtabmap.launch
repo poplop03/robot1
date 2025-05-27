@@ -15,8 +15,6 @@
       <!-- Should be true for not synchronized camera topics 
            (e.g., false for kinectv2, zed, realsense, true for xtion, kinect360)-->
       <param name="approx_sync"       value="true"/> 
-
-      <param name="approx_sync" value="true" /> 
       <param name="approx_sync_max_interval" value="0.02" />
     </node>
 
@@ -31,7 +29,7 @@
           <remap from="scan" to="/scan_filtered"/>
           <remap from="rgbd_image" to="rgbd_image"/>
 
-          <param name="queue_size" type="int" value="100"/>
+          <param name="queue_size" type="int" value="10"/>
 
           <!-- RTAB-Map's parameters -->
           <param name="RGBD/NeighborLinkRefining" type="string" value="true"/>

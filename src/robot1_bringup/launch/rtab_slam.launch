@@ -12,4 +12,4 @@
     <!-- Rtab_map -->
   <include file="$(find rtabmap_bringup)/launch/rtabmap.launch"/>
 
-<launch>
+</launch>

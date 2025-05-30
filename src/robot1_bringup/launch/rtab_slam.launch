@@ -1,3 +1,5 @@
+<launch>   
+
     <!-- init hardware -->
   <include file="$(find robot1_bringup)/launch/hardware_bringup.launch"/>
 
@@ -9,3 +11,5 @@
 
     <!-- Rtab_map -->
   <include file="$(find rtabmap_bringup)/launch/rtabmap.launch"/>
+
+<launch>

@@ -13,16 +13,16 @@ int main(int argc, char **argv) {
     spinner.start();
 
     ros::Time prev_time = ros::Time::now();
-    ros::Rate rate(100.0);
+    ros::Rate rate(50.0);
 
     while (ros::ok()) {
         const ros::Time time = ros::Time::now();
         const ros::Duration period = time - prev_time;
-        prev_time = time;
 
         hoverboard.read();
         cm.update(time, period);
-        hoverboard.write(time, period);
+        hoverboard.write();
+        hoverboard.tick();
 
         rate.sleep();
     }

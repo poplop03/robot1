@@ -15,7 +15,7 @@ hoverboard_velocity_controller:
   # Wheel separation and diameter. These are both optional.
   # diff_drive_controller will attempt to read either one or both from the
   # URDF if not specified as a parameter
-  wheel_separation : 0.45
+  wheel_separation : 0.32
   wheel_radius : 0.0825
 
   # Wheel separation and radius multipliers
@@ -36,16 +36,16 @@ hoverboard_velocity_controller:
   linear:
     x:
       has_velocity_limits    : true
-      max_velocity           : 3  # m/s
+      max_velocity           : 0.25  # m/s
       has_acceleration_limits: true
-      max_acceleration       : 0.8  # m/s^2
-      has_jerk_limits        : false
-      max_jerk               : 0.0  # m/s^3
+      max_acceleration       : 1.0  # m/s^2
+      has_jerk_limits        : true
+      max_jerk               : 0.1  # m/s^3
   angular:
     z:
       has_velocity_limits    : true # was true
-      max_velocity           : 1  # rad/s
+      max_velocity           : 1.57  # rad/s
       has_acceleration_limits: true # was true
-      max_acceleration       : 1  # rad/s^2
+      max_acceleration       : 3.14  # rad/s^2
       has_jerk_limits        : true
-      max_jerk               : 1  # rad/s^3
+      max_jerk               : 3.14  # rad/s^3

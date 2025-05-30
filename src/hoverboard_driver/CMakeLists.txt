@@ -9,8 +9,6 @@ find_package(catkin REQUIRED COMPONENTS
   hardware_interface
   controller_manager
   dynamic_reconfigure
-  control_toolbox
-  rosparam_shortcuts
 )
 
 ## System dependencies are found with CMake's conventions
@@ -27,21 +25,22 @@ catkin_package(
 include_directories(
  include
  include/hoverboard_driver
-  ${catkin_INCLUDE_DIRS}
+ src/bipropellant/src
+ src/bipropellant/src/hbprotocol
+ ${catkin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME} 
   src/hoverboard.cpp 
-  src/pid.cpp
   src/main.cpp
+  src/bipropellant/src/HoverboardAPI.cpp
+  src/bipropellant/src/protocolFunctions.c
+  src/bipropellant/src/hbprotocol/ascii_protocol.c
+  src/bipropellant/src/hbprotocol/protocol.c
+  src/bipropellant/src/hbprotocol/machine_protocol.c
 )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-)
-
 
 add_dependencies(hoverboard_driver ${PROJECT_NAME}_gencfg)
 

@@ -25,8 +25,8 @@ catkin_package(
 include_directories(
  include
  include/hoverboard_driver
- src/bipropellant-hoverboard-api/src
- src/bipropellant-hoverboard-api/src/hbprotocol
+ src/bipropellant/src
+ src/bipropellant/src/hbprotocol
  ${catkin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
 )

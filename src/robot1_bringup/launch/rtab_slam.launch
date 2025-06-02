@@ -9,4 +9,7 @@
 
     <!-- Rtab_map -->
   <include file="$(find rtabmap_bringup)/launch/rtabmap_no_odom.launch"/>
+
+    <!-- rosboard -->
+  <include file="$(find rosboard)/launch/rosboard.launch"/>
 </launch>

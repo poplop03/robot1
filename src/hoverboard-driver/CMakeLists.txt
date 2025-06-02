@@ -38,10 +38,5 @@ add_executable(${PROJECT_NAME}
 )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-)
-
-
 add_dependencies(hoverboard_driver ${PROJECT_NAME}_gencfg)
 

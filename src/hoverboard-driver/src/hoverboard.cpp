@@ -190,8 +190,8 @@ void Hoverboard::write(const ros::Time& time, const ros::Duration& period) {
 
     // Convert PID outputs in RAD/S to RPM
     double set_speed[2] = {
-        joints[0].cmd.data / 0.10472,
-        joints[1].cmd.data / 0.10472
+        pid_outputs[0] / 0.10472,
+        pid_outputs[1] / 0.10472
     };
 
     // Calculate steering from difference of left and right

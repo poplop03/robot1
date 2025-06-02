@@ -16,6 +16,6 @@
 
   <!-- Start kinect360-->
   <include file="$(find openni_launch)/launch/openni.launch">
-    <!-- <arg name="depth_registration" value="true" /> -->
+    <arg name="depth_registration" value="true" />
   </include>
 </launch>

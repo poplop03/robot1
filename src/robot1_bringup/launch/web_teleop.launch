@@ -1,0 +1,8 @@
+<launch>  
+  <!-- Launch hardware -->
+  <include file="$(find robot1_bringup)/launch/hardware_bringup.launch" />
+  <!-- Launch Ros bridge -->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+  <!-- Launch Rosboard-->
+  <include file="$(find rosboard)/launch/rosboard.launch" />
+</launch>

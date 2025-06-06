@@ -16,7 +16,7 @@ def main():
     imu_pub = rospy.Publisher('/imu/raw', Imu, queue_size=10)
     
     # Initialize the MPU6050 sensor (make sure the correct I2C a1ddress is used)
-    mpu = mpu6050(0x68)
+    mpu = mpu6050(0x68, 3)
     
     # Set the loop rate (e.g., 100 Hz)
     rate = rospy.Rate(100)

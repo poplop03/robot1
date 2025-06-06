@@ -19,7 +19,7 @@ def main():
     mpu = mpu6050(0x68, 3)
     
     # Set the loop rate (e.g., 100 Hz)
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(50)
     1
     while not rospy.is_shutdown():
         # Create an empty Imu message

@@ -1,7 +1,0 @@
-<launch>
-  <arg
-    name="model" />
-  <param
-    name="robot_description"
-    textfile="$(find urdf5)/urdf/urdf5.urdf" />
-</launch>

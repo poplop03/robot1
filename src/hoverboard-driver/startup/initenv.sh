@@ -2,7 +2,7 @@
 
 echo "Creating udev rule for Hoverboard UART..."
 
-echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout", SYMLINK+="hoverboard_uart"' > /etc/udev/rules.d/hoverboard.rules
+echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="5523", MODE:="0666", GROUP:="dialout", SYMLINK+="hoverboard_uart"' > /etc/udev/rules.d/hoverboard.rules
 
 # Reload udev
 echo "Reloading udev rules..."

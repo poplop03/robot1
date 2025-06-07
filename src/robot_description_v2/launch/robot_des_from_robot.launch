@@ -1,0 +1,9 @@
+<launch>
+  <!-- Load the URDF into the parameter server -->
+  <param name="robot_description" command="$(eval 'cat ' + find('robot_description_v2') + '/urdf/robot_description_v2.urdf')" />
+
+
+  <!-- Run robot_state_publisher to publish TFs -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+</launch>

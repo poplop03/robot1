@@ -26,7 +26,7 @@ hoverboard_velocity_controller:
   cmd_vel_timeout: 0.5
 
   # Base frame_id
-  base_frame_id: base_link #default: base_link
+  base_frame_id: base_footprint #default: base_link
   allow_multiple_cmd_vel_publishers: true
   odom_frame_id: '/raw_odom'
   enable_odom_tf: false
@@ -44,8 +44,8 @@ hoverboard_velocity_controller:
   angular:
     z:
       has_velocity_limits    : true # was true
-      max_velocity           : 3.14  # rad/s
+      max_velocity           : 6  # rad/s
       has_acceleration_limits: true # was true
-      max_acceleration       : 0.5  # rad/s^2
+      max_acceleration       : 2.5  # rad/s^2
       has_jerk_limits        : true
       max_jerk               : 0  # rad/s^3

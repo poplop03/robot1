@@ -44,4 +44,5 @@
           <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.1"/>
     </node>
   </group>
+  <arg name="database_path"     default="~/ROS1/robot1/map"/>
 </launch>

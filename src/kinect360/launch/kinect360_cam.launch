@@ -9,7 +9,8 @@
 
   <!-- Image pipeline nodelet: RGB rectification -->
   <node pkg="nodelet" type="nodelet" name="rectify_color" args="load image_proc/image_proc nodelet_manager" output="screen">
-    <remap from="image_raw" to="/camera/rgb/image_raw"/>
+    <!-- Fixed remap: image_raw -> image_color -->
+    <remap from="image_raw" to="/camera/rgb/image_color"/>
     <remap from="camera_info" to="/camera/rgb/camera_info"/>
     <remap from="image" to="/camera/rgb/image_rect_color"/>
   </node>

@@ -15,7 +15,7 @@
 
           <remap from="odom" to="/odom"/>
           <remap from="scan" to="/scan_ydlidar"/>
-          <remap from="rgbd_image" to="rgbd_image"/>
+          <remap from="rgbd_image" to="/camera/depth_registered/points"/>
 
           <param name="queue_size" type="int" value="10"/>
 

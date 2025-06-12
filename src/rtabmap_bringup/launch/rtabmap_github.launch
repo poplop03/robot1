@@ -30,7 +30,7 @@
       <!-- RTAB-Map Output -->
       <remap from="grid_map" to="/map"/>
 
-      <!-- Rate (Hz) at which new nodes are added to map -->
+      <!-- Rate (Hz) at which new nodes are added to mapdd -->
       <param name="Rtabmap/DetectionRate" type="string" value="1"/>
 
       <!-- 2D SLAM -->

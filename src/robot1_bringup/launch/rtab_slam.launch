@@ -12,8 +12,4 @@
 
     <!-- rosboard -->
   <include file="$(find rosboard)/launch/rosboard.launch"/>
-
-  <node pkg="nodelet" type="nodelet" name="camera_nodelet_manager" args="manager" />
-
-  
 </launch>

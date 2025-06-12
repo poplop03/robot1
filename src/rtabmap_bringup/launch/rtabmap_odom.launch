@@ -1,22 +1,15 @@
 <launch>
+  <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="load rtabmap_sync/rgbd_sync /camera/camera_nodelet_manager" output="screen">
+    <remap from="rgb/image"       to="/camera/rgb/image_raw"/>
+    <remap from="depth/image"     to="/camera/depth/image_raw"/>
+    <remap from="rgb/camera_info" to="/camera/rgb/camera_info"/>
+    <remap from="rgbd_image"      to="/rtabmap/rgbd_image"/>
+    <param name="approx_sync" value="true"/>
+    <param name="approx_sync_max_interval" value="0.03"/>
+    <param name="queue_size" value="30"/>
+  </node>
+
   <group ns="rtabmap">
-
-    <!-- Use RGBD synchronization -->
-    <!-- Here is a general example using a standalone nodelet, 
-         but it is recommended to attach this nodelet to nodelet 
-         manager of the camera to avoid topic serialization -->
-    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_sync/rgbd_sync" output="screen">
-      <remap from="rgb/image"       to="/camera/rgb/image_rect_color"/>
-      <remap from="depth/image"     to="/camera/depth_registered/image_raw"/>
-      <remap from="rgb/camera_info" to="/camera/rgb/camera_info"/>
-      <remap from="rgbd_image"      to="rgbd_image"/> <!-- output -->
-      
-      <!-- Should be true for not synchronized camera topics 
-           (e.g., false for kinectv2, zed, realsense, true for xtion, kinect360)-->
-      <param name="approx_sync"       value="true"/>
-      <param name="approx_sync_max_interval" value="0.15"/>
-    </node>
-
     <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="--delete_db_on_start">
           <param name="frame_id" type="string" value="base_link"/>
 
@@ -45,5 +38,5 @@
           <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.1"/>
     </node>
   </group>
-  <arg name="database_path"     default="~/ROS1/robot1/map"/>
+  <!-- <arg name="database_path"     default="~/ROS1/robot1/map"/> -->
 </launch>

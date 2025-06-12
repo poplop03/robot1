@@ -5,7 +5,7 @@
     <!-- Here is a general example using a standalone nodelet, 
          but it is recommended to attach this nodelet to nodelet 
          manager of the camera to avoid topic serialization -->
-    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_sync/rgbd_sync" output="screen">
+    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="load rtabmap_sync/rgbd_sync camera_nodelet_manager" output="screen">
       <remap from="rgb/image"       to="/camera/rgb/image_rect_color"/>
       <remap from="depth/image"     to="/camera/depth_registered/image_raw"/>
       <remap from="rgb/camera_info" to="/camera/rgb/camera_info"/>
@@ -18,7 +18,6 @@
 
     <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="--delete_db_on_start">
           <param name="frame_id" type="string" value="base_link"/>
-          <param name="approx_sync"       value="true"/>
 
           <param name="subscribe_depth" type="bool" value="false"/>
           <param name="subscribe_rgbd" type="bool" value="true"/>

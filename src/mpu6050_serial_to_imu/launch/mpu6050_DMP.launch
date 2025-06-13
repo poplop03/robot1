@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="mpu6050_serial_to_imu" type="mpu6050_serial_to_imu_node" name="mpu6050_serial_to_imu_node" required="true">
+    <param name="port" value="/dev/mpu6050_uart"/>
+  </node>
+
+  <!-- Delay and call the servicwwwwe hehe -->
+  <node pkg="imu_calib" type="call_set_zero.py" name="call_set_zero_orientation_node" output="screen"/>
+</launch>

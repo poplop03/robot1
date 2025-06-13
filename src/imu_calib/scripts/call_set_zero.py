@@ -14,5 +14,5 @@ def call_service():
 
 if __name__ == "__main__":
     rospy.init_node('call_set_zero_orientation_node', anonymous=True)
-    rospy.sleep(2)  # Wait a few seconds to ensure the imu node is up
+    rospy.sleep(1)  # Wait a few seconds to ensure the imu node is up
     call_service()

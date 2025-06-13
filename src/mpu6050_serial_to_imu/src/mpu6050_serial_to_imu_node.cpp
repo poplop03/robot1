@@ -3,14 +3,15 @@
 #include <serial/serial.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/Temperature.h>
+#include <std_msgs/String.h>
 #include <std_srvs/Empty.h>
 #include <string>
-#include <tf/transform_broadcaster.h>
 #include <tf/transform_datatypes.h>
 
 bool zero_orientation_set = false;
 
-bool set_zero_orientation(std_srvs::Empty::Request&, std_srvs::Empty::Response&)
+bool set_zero_orientation(std_srvs::Empty::Request&,
+                          std_srvs::Empty::Response&)
 {
   ROS_INFO("Zero Orientation Set.");
   zero_orientation_set = false;
@@ -23,7 +24,6 @@ int main(int argc, char** argv)
   std::string port;
   std::string frame_id;
   double time_offset_in_seconds;
-  bool broadcast_tf;
   double linear_acceleration_stddev;
   double angular_velocity_stddev;
   double orientation_stddev;
@@ -40,7 +40,6 @@ int main(int argc, char** argv)
   private_node_handle.param<std::string>("port", port, "/dev/ttyACM0");
   private_node_handle.param<std::string>("frame_id", frame_id, "imu_link");
   private_node_handle.param<double>("time_offset_in_seconds", time_offset_in_seconds, 0.0);
-  private_node_handle.param<bool>("broadcast_tf", broadcast_tf, true);
   private_node_handle.param<double>("linear_acceleration_stddev", linear_acceleration_stddev, 0.0);
   private_node_handle.param<double>("angular_velocity_stddev", angular_velocity_stddev, 0.0);
   private_node_handle.param<double>("orientation_stddev", orientation_stddev, 0.0);
@@ -69,20 +68,16 @@ int main(int argc, char** argv)
   sensor_msgs::Temperature temperature_msg;
   temperature_msg.variance = 0;
 
-  static tf::TransformBroadcaster tf_br;
-  tf::Transform transform;
-  transform.setOrigin(tf::Vector3(0, 0, 0));
-
   std::string input;
   std::string read;
 
-  while (ros::ok())
+  while(ros::ok())
   {
     try
     {
       if (ser.isOpen())
       {
-        if (ser.available())
+        if(ser.available())
         {
           read = ser.read(ser.available());
           input += read;
@@ -91,13 +86,12 @@ int main(int argc, char** argv)
             data_packet_start = input.find("$\x03");
             if (data_packet_start != std::string::npos)
             {
-              if ((input.length() >= data_packet_start + 28) &&
-                  (input.compare(data_packet_start + 26, 2, "\r\n") == 0))
+              if ((input.length() >= data_packet_start + 28) && (input.compare(data_packet_start + 26, 2, "\r\n") == 0))
               {
-                int16_t w = (((0xff & (char)input[data_packet_start + 2]) << 8) | 0xff & (char)input[data_packet_start + 3]);
-                int16_t x = (((0xff & (char)input[data_packet_start + 4]) << 8) | 0xff & (char)input[data_packet_start + 5]);
-                int16_t y = (((0xff & (char)input[data_packet_start + 6]) << 8) | 0xff & (char)input[data_packet_start + 7]);
-                int16_t z = (((0xff & (char)input[data_packet_start + 8]) << 8) | 0xff & (char)input[data_packet_start + 9]);
+                int16_t w = (((0xff &(char)input[data_packet_start + 2]) << 8) | 0xff &(char)input[data_packet_start + 3]);
+                int16_t x = (((0xff &(char)input[data_packet_start + 4]) << 8) | 0xff &(char)input[data_packet_start + 5]);
+                int16_t y = (((0xff &(char)input[data_packet_start + 6]) << 8) | 0xff &(char)input[data_packet_start + 7]);
+                int16_t z = (((0xff &(char)input[data_packet_start + 8]) << 8) | 0xff &(char)input[data_packet_start + 9]);
 
                 double wf = w / 16384.0;
                 double xf = x / 16384.0;
@@ -112,29 +106,29 @@ int main(int argc, char** argv)
                   zero_orientation_set = true;
                 }
 
-                tf::Quaternion differential_rotation = zero_orientation.inverse() * orientation;
+                tf::Quaternion differential_rotation;
+                differential_rotation = zero_orientation.inverse() * orientation;
 
-                int16_t gx = (((0xff & (char)input[data_packet_start + 10]) << 8) | 0xff & (char)input[data_packet_start + 11]);
-                int16_t gy = (((0xff & (char)input[data_packet_start + 12]) << 8) | 0xff & (char)input[data_packet_start + 13]);
-                int16_t gz = (((0xff & (char)input[data_packet_start + 14]) << 8) | 0xff & (char)input[data_packet_start + 15]);
+                int16_t gx = (((0xff &(char)input[data_packet_start + 10]) << 8) | 0xff &(char)input[data_packet_start + 11]);
+                int16_t gy = (((0xff &(char)input[data_packet_start + 12]) << 8) | 0xff &(char)input[data_packet_start + 13]);
+                int16_t gz = (((0xff &(char)input[data_packet_start + 14]) << 8) | 0xff &(char)input[data_packet_start + 15]);
 
                 double gxf = gx * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
                 double gyf = gy * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
                 double gzf = gz * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
 
-                int16_t ax = (((0xff & (char)input[data_packet_start + 16]) << 8) | 0xff & (char)input[data_packet_start + 17]);
-                int16_t ay = (((0xff & (char)input[data_packet_start + 18]) << 8) | 0xff & (char)input[data_packet_start + 19]);
-                int16_t az = (((0xff & (char)input[data_packet_start + 20]) << 8) | 0xff & (char)input[data_packet_start + 21]);
+                int16_t ax = (((0xff &(char)input[data_packet_start + 16]) << 8) | 0xff &(char)input[data_packet_start + 17]);
+                int16_t ay = (((0xff &(char)input[data_packet_start + 18]) << 8) | 0xff &(char)input[data_packet_start + 19]);
+                int16_t az = (((0xff &(char)input[data_packet_start + 20]) << 8) | 0xff &(char)input[data_packet_start + 21]);
 
                 double axf = ax * (8.0 / 65536.0) * 9.81;
                 double ayf = ay * (8.0 / 65536.0) * 9.81;
                 double azf = az * (8.0 / 65536.0) * 9.81;
 
-                int16_t temperature = (((0xff & (char)input[data_packet_start + 22]) << 8) | 0xff & (char)input[data_packet_start + 23]);
+                int16_t temperature = (((0xff &(char)input[data_packet_start + 22]) << 8) | 0xff &(char)input[data_packet_start + 23]);
                 double temperature_in_C = (temperature / 340.0) + 36.53;
 
                 uint8_t received_message_number = input[data_packet_start + 25];
-
                 if (received_message)
                 {
                   uint8_t message_distance = received_message_number - last_received_message_number;
@@ -171,12 +165,6 @@ int main(int argc, char** argv)
                 temperature_msg.temperature = temperature_in_C;
 
                 imu_temperature_pub.publish(temperature_msg);
-
-                if (broadcast_tf)
-                {
-                  transform.setRotation(differential_rotation);
-                  tf_br.sendTransform(tf::StampedTransform(transform, measurement_time, frame_id, frame_id));
-                }
 
                 input.erase(0, data_packet_start + 28);
               }

@@ -3,7 +3,6 @@
 #include <serial/serial.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/Temperature.h>
-#include <std_msgs/String.h>
 #include <std_srvs/Empty.h>
 #include <string>
 #include <tf/transform_broadcaster.h>
@@ -11,8 +10,7 @@
 
 bool zero_orientation_set = false;
 
-bool set_zero_orientation(std_srvs::Empty::Request&,
-                          std_srvs::Empty::Response&)
+bool set_zero_orientation(std_srvs::Empty::Request&, std_srvs::Empty::Response&)
 {
   ROS_INFO("Zero Orientation Set.");
   zero_orientation_set = false;
@@ -23,8 +21,6 @@ int main(int argc, char** argv)
 {
   serial::Serial ser;
   std::string port;
-  std::string tf_parent_frame_id;
-  std::string tf_frame_id;
   std::string frame_id;
   double time_offset_in_seconds;
   bool broadcast_tf;
@@ -42,8 +38,6 @@ int main(int argc, char** argv)
 
   ros::NodeHandle private_node_handle("~");
   private_node_handle.param<std::string>("port", port, "/dev/ttyACM0");
-  private_node_handle.param<std::string>("tf_parent_frame_id", tf_parent_frame_id, "imu_base");
-  private_node_handle.param<std::string>("tf_frame_id", tf_frame_id, "imu_link");
   private_node_handle.param<std::string>("frame_id", frame_id, "imu_link");
   private_node_handle.param<double>("time_offset_in_seconds", time_offset_in_seconds, 0.0);
   private_node_handle.param<bool>("broadcast_tf", broadcast_tf, true);
@@ -56,7 +50,7 @@ int main(int argc, char** argv)
   ros::Publisher imu_temperature_pub = nh.advertise<sensor_msgs::Temperature>("temperature", 50);
   ros::ServiceServer service = nh.advertiseService("set_zero_orientation", set_zero_orientation);
 
-  ros::Rate r(200); // 200 hz
+  ros::Rate r(200); // 200 Hz
 
   sensor_msgs::Imu imu;
 
@@ -77,43 +71,38 @@ int main(int argc, char** argv)
 
   static tf::TransformBroadcaster tf_br;
   tf::Transform transform;
-  transform.setOrigin(tf::Vector3(0,0,0));
+  transform.setOrigin(tf::Vector3(0, 0, 0));
 
   std::string input;
   std::string read;
 
-  while(ros::ok())
+  while (ros::ok())
   {
     try
     {
       if (ser.isOpen())
       {
-        // read string from serial device
-        if(ser.available())
+        if (ser.available())
         {
           read = ser.read(ser.available());
-          ROS_DEBUG("read %i new characters from serial port, adding to %i characters of old input.", (int)read.size(), (int)input.size());
           input += read;
-          while (input.length() >= 28) // while there might be a complete package in input
+          while (input.length() >= 28)
           {
-            //parse for data packets
             data_packet_start = input.find("$\x03");
             if (data_packet_start != std::string::npos)
             {
-              ROS_DEBUG("found possible start of data packet at position %d", data_packet_start);
-              if ((input.length() >= data_packet_start + 28) && (input.compare(data_packet_start + 26, 2, "\r\n") == 0))  //check if positions 26,27 exist, then test values
+              if ((input.length() >= data_packet_start + 28) &&
+                  (input.compare(data_packet_start + 26, 2, "\r\n") == 0))
               {
-                ROS_DEBUG("seems to be a real data package: long enough and found end characters");
-                // get quaternion values
-                int16_t w = (((0xff &(char)input[data_packet_start + 2]) << 8) | 0xff &(char)input[data_packet_start + 3]);
-                int16_t x = (((0xff &(char)input[data_packet_start + 4]) << 8) | 0xff &(char)input[data_packet_start + 5]);
-                int16_t y = (((0xff &(char)input[data_packet_start + 6]) << 8) | 0xff &(char)input[data_packet_start + 7]);
-                int16_t z = (((0xff &(char)input[data_packet_start + 8]) << 8) | 0xff &(char)input[data_packet_start + 9]);
+                int16_t w = (((0xff & (char)input[data_packet_start + 2]) << 8) | 0xff & (char)input[data_packet_start + 3]);
+                int16_t x = (((0xff & (char)input[data_packet_start + 4]) << 8) | 0xff & (char)input[data_packet_start + 5]);
+                int16_t y = (((0xff & (char)input[data_packet_start + 6]) << 8) | 0xff & (char)input[data_packet_start + 7]);
+                int16_t z = (((0xff & (char)input[data_packet_start + 8]) << 8) | 0xff & (char)input[data_packet_start + 9]);
 
-                double wf = w/16384.0;
-                double xf = x/16384.0;
-                double yf = y/16384.0;
-                double zf = z/16384.0;
+                double wf = w / 16384.0;
+                double xf = x / 16384.0;
+                double yf = y / 16384.0;
+                double zf = z / 16384.0;
 
                 tf::Quaternion orientation(xf, yf, zf, wf);
 
@@ -123,45 +112,33 @@ int main(int argc, char** argv)
                   zero_orientation_set = true;
                 }
 
-                //http://answers.ros.org/question/10124/relative-rotation-between-two-quaternions/
-                tf::Quaternion differential_rotation;
-                differential_rotation = zero_orientation.inverse() * orientation;
+                tf::Quaternion differential_rotation = zero_orientation.inverse() * orientation;
 
-                // get gyro values
-                int16_t gx = (((0xff &(char)input[data_packet_start + 10]) << 8) | 0xff &(char)input[data_packet_start + 11]);
-                int16_t gy = (((0xff &(char)input[data_packet_start + 12]) << 8) | 0xff &(char)input[data_packet_start + 13]);
-                int16_t gz = (((0xff &(char)input[data_packet_start + 14]) << 8) | 0xff &(char)input[data_packet_start + 15]);
-                // calculate rotational velocities in rad/s
-                // without the last factor the velocities were too small
-                // http://www.i2cdevlib.com/forums/topic/106-get-angular-velocity-from-mpu-6050/
-                // FIFO frequency 100 Hz -> factor 10 ?
-                // seems 25 is the right factor
-                //TODO: check / test if rotational velocities are correct
-                double gxf = gx * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
-                double gyf = gy * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
-                double gzf = gz * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
+                int16_t gx = (((0xff & (char)input[data_packet_start + 10]) << 8) | 0xff & (char)input[data_packet_start + 11]);
+                int16_t gy = (((0xff & (char)input[data_packet_start + 12]) << 8) | 0xff & (char)input[data_packet_start + 13]);
+                int16_t gz = (((0xff & (char)input[data_packet_start + 14]) << 8) | 0xff & (char)input[data_packet_start + 15]);
 
-                // get acelerometer values
-                int16_t ax = (((0xff &(char)input[data_packet_start + 16]) << 8) | 0xff &(char)input[data_packet_start + 17]);
-                int16_t ay = (((0xff &(char)input[data_packet_start + 18]) << 8) | 0xff &(char)input[data_packet_start + 19]);
-                int16_t az = (((0xff &(char)input[data_packet_start + 20]) << 8) | 0xff &(char)input[data_packet_start + 21]);
-                // calculate accelerations in m/s²
+                double gxf = gx * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
+                double gyf = gy * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
+                double gzf = gz * (4000.0 / 65536.0) * (M_PI / 180.0) * 25.0;
+
+                int16_t ax = (((0xff & (char)input[data_packet_start + 16]) << 8) | 0xff & (char)input[data_packet_start + 17]);
+                int16_t ay = (((0xff & (char)input[data_packet_start + 18]) << 8) | 0xff & (char)input[data_packet_start + 19]);
+                int16_t az = (((0xff & (char)input[data_packet_start + 20]) << 8) | 0xff & (char)input[data_packet_start + 21]);
+
                 double axf = ax * (8.0 / 65536.0) * 9.81;
                 double ayf = ay * (8.0 / 65536.0) * 9.81;
                 double azf = az * (8.0 / 65536.0) * 9.81;
 
-                // get temperature
-                int16_t temperature = (((0xff &(char)input[data_packet_start + 22]) << 8) | 0xff &(char)input[data_packet_start + 23]);
-                double temperature_in_C = (temperature / 340.0 ) + 36.53;
-                ROS_DEBUG_STREAM("Temperature [in C] " << temperature_in_C);
+                int16_t temperature = (((0xff & (char)input[data_packet_start + 22]) << 8) | 0xff & (char)input[data_packet_start + 23]);
+                double temperature_in_C = (temperature / 340.0) + 36.53;
 
                 uint8_t received_message_number = input[data_packet_start + 25];
-                ROS_DEBUG("received message number: %i", received_message_number);
 
-                if (received_message) // can only check for continuous numbers if already received at least one packet
+                if (received_message)
                 {
                   uint8_t message_distance = received_message_number - last_received_message_number;
-                  if ( message_distance > 1 )
+                  if (message_distance > 1)
                   {
                     ROS_WARN_STREAM("Missed " << message_distance - 1 << " MPU6050 data packets from arduino.");
                   }
@@ -172,10 +149,8 @@ int main(int argc, char** argv)
                 }
                 last_received_message_number = received_message_number;
 
-                // calculate measurement time
                 ros::Time measurement_time = ros::Time::now() + ros::Duration(time_offset_in_seconds);
 
-                // publish imu message
                 imu.header.stamp = measurement_time;
                 imu.header.frame_id = frame_id;
 
@@ -191,37 +166,34 @@ int main(int argc, char** argv)
 
                 imu_pub.publish(imu);
 
-                // publish temperature message
                 temperature_msg.header.stamp = measurement_time;
                 temperature_msg.header.frame_id = frame_id;
                 temperature_msg.temperature = temperature_in_C;
 
                 imu_temperature_pub.publish(temperature_msg);
 
-                // publish tf transform
                 if (broadcast_tf)
                 {
                   transform.setRotation(differential_rotation);
-                  tf_br.sendTransform(tf::StampedTransform(transform, measurement_time, tf_parent_frame_id, tf_frame_id));
+                  tf_br.sendTransform(tf::StampedTransform(transform, measurement_time, frame_id, frame_id));
                 }
-                input.erase(0, data_packet_start + 28); // delete everything up to and including the processed packet
+
+                input.erase(0, data_packet_start + 28);
               }
               else
               {
                 if (input.length() >= data_packet_start + 28)
                 {
-                  input.erase(0, data_packet_start + 1); // delete up to false data_packet_start character so it is not found again
+                  input.erase(0, data_packet_start + 1);
                 }
                 else
                 {
-                  // do not delete start character, maybe complete package has not arrived yet
                   input.erase(0, data_packet_start);
                 }
               }
             }
             else
             {
-              // no start character found in input, so delete everything
               input.clear();
             }
           }
@@ -229,7 +201,6 @@ int main(int argc, char** argv)
       }
       else
       {
-        // try and open the serial port
         try
         {
           ser.setPort(port);
@@ -244,7 +215,7 @@ int main(int argc, char** argv)
           ros::Duration(5).sleep();
         }
 
-        if(ser.isOpen())
+        if (ser.isOpen())
         {
           ROS_DEBUG_STREAM("Serial port " << ser.getPort() << " initialized and opened.");
         }

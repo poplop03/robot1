@@ -4,5 +4,7 @@
 
   <!-- Gmapping SLAM -->
   <include file="$(find robot1_bringup)/launch/gmapping_config.launch" />
+      <!-- rosboard -->
+  <include file="$(find rosboard)/launch/rosboard.launch"/>
   
 </launch>

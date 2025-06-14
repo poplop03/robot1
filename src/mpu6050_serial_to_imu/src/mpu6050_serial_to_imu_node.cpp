@@ -49,7 +49,7 @@ int main(int argc, char** argv)
   ros::Publisher imu_temperature_pub = nh.advertise<sensor_msgs::Temperature>("temperature", 50);
   ros::ServiceServer service = nh.advertiseService("set_zero_orientation", set_zero_orientation);
 
-  ros::Rate r(200); // 200 Hz
+  ros::Rate r(100); // 200 Hz
 
   sensor_msgs::Imu imu;
 

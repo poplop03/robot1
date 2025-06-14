@@ -22,7 +22,7 @@
     <param name="srr" value="0.1"/>
     <param name="srt" value="0.2"/>
     <param name="str" value="0.1"/>
-    <param name="stt" value="0.4"/>
+    <param name="stt" value="0.2"/>
     <param name="linearUpdate" value="0.5"/>
     <param name="angularUpdate" value="0.436"/>
     <param name="temporalUpdate" value="-1.0"/>

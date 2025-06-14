@@ -9,7 +9,7 @@
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
 
   <!--Launch robot_localization-->
-  <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
+  <!-- <include file="$(find robot_localization)/launch/sensor_fuse.launch" /> -->
 
   <!-- Launch lidar -->
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />

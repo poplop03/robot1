@@ -3,11 +3,11 @@
   <include file="$(find robot1_bringup)/launch/hardware_bringup.launch"/>
 
     <!-- Rtab_map -->
-  <node pkg="rtabmap_odom" type="icp_odometry" name="icp_odometry" output="screen">
+  <!-- <node pkg="rtabmap_odom" type="icp_odometry" name="icp_odometry" output="screen">
     <remap from="/imu" to="/imu/data" />
     <remap from="/scan" to="/scan_ydlidar" />
     <remap from="/odom" to="/odom/icp_odom" />
-  </node>
+  </node> -->
 
   <node pkg="rtabmap_odom" type="rgbd_odometry" name="rgbd_odometry" output="screen">
     <remap from="/imu" to="/imu/data" />

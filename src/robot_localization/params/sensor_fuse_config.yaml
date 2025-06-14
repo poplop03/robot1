@@ -132,6 +132,17 @@ odom1_nodelay: false
 odom1_differential: false
 odom1_relative: false
 
+# odom1: /odom/rgbd_odom
+# odom1_config: [false, false, false,
+#                false, false, false,
+#                true,  true, false,
+#                false, false, true,
+#                false, false, false]
+# odom1_queue_size: 2
+# odom1_nodelay: false
+# odom1_differential: false
+# odom1_relative: false
+
 
 imu0: /imu/data
 imu0_config: [false, false, false,

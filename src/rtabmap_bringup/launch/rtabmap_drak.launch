@@ -28,7 +28,7 @@
       <param name="subscribe_user_data" type="bool" value="false"/>
 
       <!-- Topics -->
-      <remap from="odom" to="/odometry/filtered"/> <!-- Fused IMU + wheel odom -->
+      <remap from="odom" to="/odom"/> <!-- Fused IMU + wheel odom -->
       <remap from="scan" to="/scan_ydlidar"/>
       <remap from="rgbd_image" to="rgbd_image"/>
 

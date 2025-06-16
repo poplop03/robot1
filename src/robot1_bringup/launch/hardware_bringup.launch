@@ -14,9 +14,9 @@
   <!-- Launch lidar -->
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
-  <!-- Start kinect360-->
+  <!-- Start kinect360
   <include file="$(find openni_launch)/launch/openni.launch" >
     <arg name="depth_registration" value="true" />
-  </include>
+  </include> -->
   
 </launch>

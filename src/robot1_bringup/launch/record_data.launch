@@ -1,10 +1,10 @@
 <launch>
-  <!-- Define fixed save directory and bag filename -->
+  <!-- Define save directory and filename prefix -->
   <arg name="output_dir" default="/home/duc/rosbags"/>
   <arg name="bag_name" default="slam_session"/>
 
-  <!-- Record all topics -->
-  <node name="rosbag_record" pkg="rosbag" type="record" required="true"
-        args="-O $(arg bag_name) /imu/data /odom /hoverboard_velocity_controller/odom"
-        output="screen"/>
+  <!-- Record specific topics -->
+  <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
+        args="-o $(arg output_dir)/$(arg bag_name) \
+              /imu/data /odom /hoverboard_velocity_controller/odom" />
 </launch>

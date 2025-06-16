@@ -4,6 +4,7 @@
   <arg name="bag_name" default="slam_session"/>
 
   <!-- Record all topics -->
-  <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
-        args="-a -o /home/duc/rosbags/slam_session" />
+  <node name="rosbag_record" pkg="rosbag" type="record" required="true"
+        args="-O $(arg bag_name) /imu/data /odom /hoverboard_velocity_controller/odom"
+        output="screen"/>
 </launch>

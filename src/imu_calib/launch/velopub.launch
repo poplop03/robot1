@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="imu_calib" type="read_data_imu1.py" name="read_data_imu1" output="screen">
+    <remap from="/imu/imu1" to="/imu/data" />
+  </node>
+
+</launch>
+
+

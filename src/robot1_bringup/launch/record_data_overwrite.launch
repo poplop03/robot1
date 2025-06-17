@@ -1,7 +1,9 @@
 <launch>
+  <!-- Define fixed save directory and bag filename -->
   <arg name="output_dir" default="/home/duc/rosbags"/>
-  <arg name="bag_name" default="slam_data"/>
+  <arg name="bag_name" default="slam_data.bag"/>
 
+  <!-- Record all topics and overwrite existing file -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-a --output-name=$(arg output_dir)/$(arg bag_name) --overwrite" />
 </launch>

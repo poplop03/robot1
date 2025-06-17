@@ -1,0 +1,9 @@
+<launch>
+  <!-- Define fixed save directory and bag filename -->
+  <arg name="output_dir" default="/home/duc/rosbags"/>
+  <arg name="bag_name" default="slam_data"/>
+
+  <!-- Record all topics into a fixed .bag file -->
+  <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
+        args="-a -O $(arg output_dir)/$(arg bag_name).bag" />
+</launch>

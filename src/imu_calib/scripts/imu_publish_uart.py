@@ -7,6 +7,7 @@ import struct
 import math
 
 deg_to_rad = math.pi / 180.0
+GYRO_SCALE = 131.0  # LSB/(deg/s) for ±250°/s on MPU6050
 
 def parse_teapot_packet(packet):
     # packet: 28 bytes
@@ -47,13 +48,19 @@ def main():
 
         ax, ay, az, gx, gy, gz = parse_teapot_packet(packet)
 
+        # Convert raw gyro to degree per second
+        gx_dps = gx / GYRO_SCALE
+        gy_dps = gy / GYRO_SCALE
+        gz_dps = gz / GYRO_SCALE
+
         imu_msg = Imu()
         imu_msg.header.stamp = rospy.Time.now()
         imu_msg.header.frame_id = "imu_link"
 
-        imu_msg.angular_velocity.x = gx * deg_to_rad
-        imu_msg.angular_velocity.y = gy * deg_to_rad
-        imu_msg.angular_velocity.z = gz * deg_to_rad
+        # If you want to publish in rad/s (as per ROS standard), multiply by deg_to_rad
+        imu_msg.angular_velocity.x = gx_dps * deg_to_rad
+        imu_msg.angular_velocity.y = gy_dps * deg_to_rad
+        imu_msg.angular_velocity.z = gz_dps * deg_to_rad
 
         imu_msg.linear_acceleration.x = ax
         imu_msg.linear_acceleration.y = ay

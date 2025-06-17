@@ -9,5 +9,5 @@
   <include file="$(find rosboard)/launch/rosboard.launch"/>
 
     <!-- rosboard -->
-  <include file="$(find robot1_bringup)/launch/record_data.launch"/>
+  <include file="$(find robot1_bringup)/launch/record_data_all.launch"/>
 </launch>

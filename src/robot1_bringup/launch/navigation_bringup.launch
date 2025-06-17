@@ -1,19 +1,7 @@
 <launch>
   
   <!-- robot description -->  
-  <include file="$(find urdf5)/launch/robot_des_from_robot.launch" />
-
-  <!-- Launch IMU -->
-  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
-
-  <!-- Launch Hoverboard driver -->
-  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
-
-  <!-- Launch robot_localization -->
-  <include file="$(find robot_localization)/launch/sensor_fuse.launch" />
-
-  <!-- Launch lidar -->
-  <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
+  <include file="$(find robot1_bringup)/launch/hardware_bringup.launch" />
 
   <!-- Launch amcl -->
   <include file="$(find robot1_nav)/launch/move_base.launch" />

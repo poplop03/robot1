@@ -1,4 +1,7 @@
 <launch>
   <!-- 1. Launch the imu_publish node -->
-   <node pkg="imu_calib" type="imu_publish.py" name="imu_publish" output="screen" /> 
+   <node pkg="imu_calib" type="imu_publish_uart.py" name="imu_publish" output="screen">
+    <param name="port" value="/dev/mpu6050_uart"/>
+    <param name="baudrate" value="115200"/>
+   </node>
 </launch>

@@ -12,12 +12,12 @@
   </node>
 
   <node pkg="imu_calib" type="read_data_imu1.py" name="read_data_imu1" output="screen">
-    <remap from="/imu/imu1" to="/imu/corrected" />
+    <remap from="/imu/imu1" to="/imu/data" />
   </node>
 
-  <node pkg="imu_calib" type="read_data_imu2.py" name="read_data_imu2" output="screen">
+  <!-- <node pkg="imu_calib" type="read_data_imu2.py" name="read_data_imu2" output="screen">
     <remap from="/imu/imu2" to="/imu/ema_filtered" />
-  </node>
+  </node> -->
 
 </launch>
 

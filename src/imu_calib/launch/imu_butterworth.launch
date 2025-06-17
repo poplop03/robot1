@@ -1,13 +1,16 @@
 <launch>
 
   <!-- 1. Launch the IMU publisher node -->
-  <node pkg="imu_calib" type="imu_publish.py" name="imu_publish" output="screen" />
+  <node pkg="imu_calib" type="imu_publish_uart.py" name="imu_publish" output="screen">
+    <param name="port" value="/dev/mpu6050_uart"/>
+    <param name="baudrate" value="115200"/>
+  </node>
 
   <node pkg="imu_calib" type="apply_calib" name="apply_calib" output="screen">
     <param name="calib_file" value="$(find imu_calib)/config/imu_calib.yaml" />
     <remap from="raw" to="/imu/raw" />
     <remap from="/corrected" to="/imu/corrected" />
-  </node>
+  </node> 
 
   <node pkg="imu_calib" type="imu_butterworth_filter_node.py" name="imu_butter_filter_node" output="screen">
     <param name="sampling_rate" value="100.0"/>

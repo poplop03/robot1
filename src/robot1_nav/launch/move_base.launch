@@ -2,7 +2,7 @@
 <launch>
 
     <!-- Run the map server --> 
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot1_nav)/map/map.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot1_nav)/map/slam_data.bag_map.yaml"/>
 
     <!-- Run the map server 
     <node name="map_server" pkg="map_server" type="map_server" args="$(find my_map_package)/my_map.pgm my_map_resolution"/> -->

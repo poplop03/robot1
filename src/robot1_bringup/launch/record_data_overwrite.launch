@@ -1,7 +1,6 @@
 <launch>
   <arg name="output_dir" default="/home/duc/rosbags"/>
-  <arg name="bag_name" default="slam_data"/>
 
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
-        args="-o $(arg output_dir)/$(arg bag_name) --overwrite /imu/butterfilter /odom /hoverboard_velocity_controller/odom /scan_ydlidar /scan_filtered" />
+        args="--output-name=$(arg output_dir)/slam_data --overwrite /imu/data /odom /hoverboard_velocity_controller/odom" />
 </launch>

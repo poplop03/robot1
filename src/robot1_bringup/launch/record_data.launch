@@ -1,9 +1,13 @@
 <launch>
   <!-- Define fixed save directory and bag filename -->
   <arg name="output_dir" default="/home/duc/rosbags"/>
-  <arg name="bag_name" default="slam_session"/>
+  <arg name="bag_name" default="slam_data"/>
 
-  <!-- Record all topics -->
+  <!-- Record only specified topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
-        args="-a -o /home/duc/rosbags/slam_data.bag" />
+        args="-O $(arg output_dir)/$(arg bag_name).bag 
+              /imu/butterfilter 
+              /scan_ydlidar 
+              /hoverboard_velocity_controller/odom 
+              /odom" />
 </launch>

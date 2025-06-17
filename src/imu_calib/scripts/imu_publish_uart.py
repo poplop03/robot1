@@ -51,9 +51,9 @@ def main():
         imu_msg.header.stamp = rospy.Time.now()
         imu_msg.header.frame_id = "imu_link"
 
-        imu_msg.angular_velocity.x = gx * deg_to_rad
-        imu_msg.angular_velocity.y = gy * deg_to_rad
-        imu_msg.angular_velocity.z = gz * deg_to_rad
+        imu_msg.angular_velocity.x = gx
+        imu_msg.angular_velocity.y = gy
+        imu_msg.angular_velocity.z = gz
 
         imu_msg.linear_acceleration.x = ax
         imu_msg.linear_acceleration.y = ay

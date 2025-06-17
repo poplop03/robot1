@@ -2,7 +2,7 @@
 <launch>
 
     <!-- Run the map server --> 
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot1_nav)/map/map5.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot1_nav)/map/"/>
 
     <!--- Run AMCL --> 
     <include file="$(find robot1_nav)/launch/amcl_nav.launch" />

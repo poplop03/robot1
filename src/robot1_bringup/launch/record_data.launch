@@ -5,5 +5,5 @@
 
   <!-- Record all topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
-        args="-a -o $(arg output_dir)" />
+        args="-a -o /home/duc/rosbags/slam_data" />
 </launch>

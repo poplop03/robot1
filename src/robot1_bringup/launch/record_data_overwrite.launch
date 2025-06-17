@@ -2,12 +2,10 @@
   <arg name="output_dir" default="/home/duc/rosbags"/>
   <arg name="bag_prefix" default="slam_data"/>
 
-  <!-- Record all topics to a timestamped .bag -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-a -o $(arg output_dir)/$(arg bag_prefix)" />
 
-  <!-- Rename latest .bag to data.bag and delete others -->
   <node name="rename_latest_bag" pkg="rosbash" type="rosbash" output="screen"
         launch-prefix="bash -c"
-        args="sleep 5 && latest=\$(ls -t $(arg output_dir)/*.bag | head -n 1) && mv -f \$latest $(arg output_dir)/data.bag && find $(arg output_dir) -type f -name '*.bag' ! -name 'data.bag' -delete && echo 'Renamed to data.bag'" />
+        args="sleep 5 && latest=\$(ls -t \"$(arg output_dir)\"/*.bag | head -n 1) && mv -f \"\$latest\" \"$(arg output_dir)/data.bag\" && find \"$(arg output_dir)\" -type f -name '*.bag' ! -name 'data.bag' -delete && echo 'Renamed to data.bag'" />
 </launch>

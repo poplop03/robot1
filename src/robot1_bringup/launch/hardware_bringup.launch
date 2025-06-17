@@ -3,7 +3,7 @@
   <include file="$(find robot_description_v5)/launch/robot_des_from_robot.launch" />
   
   <!-- Launch IMU -->
-  <include file="$(find mpu6050_serial_to_imu)/launch/mpu6050_DMP.launch" />
+  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
 
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />

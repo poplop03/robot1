@@ -19,11 +19,6 @@
 
       <!-- Launch lidar merge -->
   <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
-
-  <node pkg="topic_tools" type="relay" name="cmd_vel_relay" output="screen">
-    <remap from="in" to="/cmd_vel"/>
-    <remap from="out" to="/hoverboard_velocity_controller/cmd_vel"/>
-  </node>
   
   <!-- Start kinect360 -->
   <include file="$(find openni_launch)/launch/openni.launch" >

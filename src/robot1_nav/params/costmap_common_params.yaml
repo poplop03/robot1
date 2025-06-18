@@ -7,7 +7,7 @@ transform_tolerance: 0.5
 observation_sources: scan
 scan:
   data_type: LaserScan
-  topic: scan_ydlidar
+  topic: scan_multi
   marking: true
   clearing: true
 

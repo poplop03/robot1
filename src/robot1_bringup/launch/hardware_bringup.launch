@@ -17,9 +17,15 @@
       <!-- Launch lidar cut -->
   <include file="$(find laser_filters)/launch/robot1_angle_filter.launch"/>
 
+      <!-- Launch lidar merge -->
+  <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
+  
   <!-- Start kinect360 -->
   <include file="$(find openni_launch)/launch/openni.launch" >
     <arg name="depth_registration" value="true" />
   </include>
   
 </launch>
+
+
+

@@ -49,3 +49,15 @@ hoverboard_velocity_controller:
       max_acceleration       : 2.5  # rad/s^2
       has_jerk_limits        : true
       max_jerk               : 3.14  # rad/s^3
+
+
+
+
+  # max_vel_x: 0.4
+  # min_vel_x: 0.1
+  # max_vel_theta: 0.2
+  # min_in_place_vel_theta: 0.3
+
+  # acc_lim_theta: 3.2
+  # acc_lim_x: 0.2
+  # acc_lim_y: 0

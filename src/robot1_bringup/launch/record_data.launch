@@ -3,12 +3,16 @@
   <arg name="output_dir" default="/home/duc/rosbags"/>
   <arg name="bag_name" default="slam_data"/>
 
-  <!-- Record only specified topics -->
+  <!-- Record only selected topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-O $(arg output_dir)/$(arg bag_name).bag 
-              /imu/butterfilter
-              /imu/raw
+              /camera/depth_registered/points 
+              /camera/depth/camera_info 
+              /camera/depth_registered/camera_info 
+              /imu/butterfilter 
+              /odom 
+              /scan_multi 
               /scan_ydlidar 
-              /hoverboard_velocity_controller/odom 
-              /odom" />
+              /hoverboard_velocity_controller/odom" />
 </launch>
+

@@ -14,11 +14,11 @@ scan_filter_chain:
       upper_angle: 0.785   # ≈45°
       invert: true
 
-  # Remove 90°–180° (left side front)
-  - name: remove_front_left
-    type: laser_filters/LaserScanAngularBoundsFilter
-    params:
-      lower_angle: 1.57
-      upper_angle: 3.14   # ≈180°
-      invert: true
+  # # Remove 90°–180° (left side front)
+  # - name: remove_front_left
+  #   type: laser_filters/LaserScanAngularBoundsFilter
+  #   params:
+  #     lower_angle: 1.57
+  #     upper_angle: 3.14   # ≈180°
+  #     invert: true
 

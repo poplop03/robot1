@@ -27,10 +27,14 @@
   
   <include file="$(find rgbd_to_pcl)/launch/rgbd_to_pcl.launch"/>
 
-  <node pkg="pcl_ros" type="voxel_grid" name="voxel_filter" output="screen">
-  <remap from="input" to="/points_xyz" />
-  <remap from="output" to="/points_xyz_downsampled" />
-  <param name="leaf_size" value="0.05" />  <!-- 5cm voxel size -->
+  <node pkg="nodelet" type="nodelet" name="voxel_manager" args="manager" output="screen"/>
+
+  <!-- Load voxel grid nodelet -->
+  <node pkg="nodelet" type="nodelet" name="voxel_filter"
+        args="load pcl/VoxelGrid voxel_manager" output="screen">
+    <remap from="~input" to="/points_xyz"/>
+    <remap from="~output" to="/points_xyz_downsampled"/>
+    <param name="leaf_size" value="0.05"/>  <!-- 5cm -->
   </node>
 
 

@@ -6,6 +6,7 @@
 
     // Global publisher object
     ros::Publisher pub;
+    ros::Time last_pub_time;
 
     /**
      * @brief Callback function for incoming PointCloud2 messages.
@@ -16,6 +17,11 @@
      */
     void callback(const sensor_msgs::PointCloud2ConstPtr& input)
     {
+        ros::Time now = ros::Time::now();
+        if ((now - last_pub_time).toSec() < (1.0 / 15.0)) {
+            return; // Skip this message
+        }
+        last_pub_time = now;
         // Convert ROS PointCloud2 to PCL PointXYZRGB cloud
         pcl::PointCloud<pcl::PointXYZRGB> cloud_rgb;
         pcl::fromROSMsg(*input, cloud_rgb);
@@ -75,3 +81,13 @@
         return 0;
     }
     
+
+
+
+
+void callback(const sensor_msgs::PointCloud2ConstPtr& input)
+{
+
+
+    // ... same as before ...
+}

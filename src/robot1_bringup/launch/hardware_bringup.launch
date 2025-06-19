@@ -27,6 +27,13 @@
   
   <include file="$(find rgbd_to_pcl)/launch/rgbd_to_pcl.launch"/>
 
+  <node pkg="pcl_ros" type="voxel_grid" name="voxel_filter" output="screen">
+  <remap from="input" to="/points_xyz" />
+  <remap from="output" to="/points_xyz_downsampled" />
+  <param name="leaf_size" value="0.05" />  <!-- 5cm voxel size -->
+  </node>
+
+
     <!-- Launch Rosboard-->
   <include file="$(find rosboard)/launch/rosboard.launch" />
 </launch>

@@ -25,7 +25,12 @@
     <arg name="depth_registration" value="true" />
   </include>
 
-  <include file="$(find pcl_ros)/launch/rgbd_to_pointcloud2.launch"/>
+  <!-- Node that just passes the cloud through -->
+  <node pkg="nodelet" type="nodelet" name="xyz_filter" args="standalone pcl/Nodelet" output="screen">
+    <param name="point_cloud_type" value="pcl::PointXYZ"/>
+    <remap from="~input" to="/camera/depth_registered/points"/>
+    <remap from="~output" to="/points_xyz"/>
+  </node>
   
 </launch>
 

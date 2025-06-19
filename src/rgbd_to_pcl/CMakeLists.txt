@@ -14,6 +14,10 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
+
+add_executable(cloud_xyz_filter src/cloud_xyz_only.cpp)
+target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 

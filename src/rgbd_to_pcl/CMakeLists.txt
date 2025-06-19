@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
 target_link_libraries(rgbd_to_pcl_node ${catkin_LIBRARIES})
+add_dependencies(rgbd_to_pcl_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
 ## System dependencies are found with CMake's conventions

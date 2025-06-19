@@ -15,8 +15,9 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
-add_executable(rgbd_to_pcl src/cloud_xyz_only.cpp)
-target_link_libraries(rgbd_to_pcl ${catkin_LIBRARIES})
+add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
+target_link_libraries(rgbd_to_pcl_node ${catkin_LIBRARIES})
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)

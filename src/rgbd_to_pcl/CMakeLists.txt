@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_executable(rgbd_to_pcl src/rgbd_to_pcl.cpp)
 target_link_libraries(rgbd_to_pcl ${catkin_LIBRARIES})
-add_dependencies(rgbd_to_pcl beginner_tutorials_generate_messages_cpp)
+add_dependencies(rgbd_to_pcl rgbd_to_pcl)
 
 
 ## System dependencies are found with CMake's conventions

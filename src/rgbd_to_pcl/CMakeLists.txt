@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_conversions
 )
 
-add_executable(cloud_xyz_filter src/cloud_xyz_only.cpp)
+add_executable(cloud_xyz_filter src/cloud_xyz_only_cpp.cpp)
 target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
 
 

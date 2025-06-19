@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="your_package_name" type="cloud_xyz_only.py" name="cloud_xyz_filter" output="screen" />
+</launch>

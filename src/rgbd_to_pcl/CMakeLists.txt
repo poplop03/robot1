@@ -8,15 +8,11 @@ project(rgbd_to_pcl)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  pcl_conversions
+  pcl_ros
   roscpp
   sensor_msgs
-  pcl_ros
-  pcl_conversions
 )
-
-add_executable(cloud_xyz_filter src/cloud_xyz_only_cpp.cpp)
-target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
-
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -75,7 +71,7 @@ target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   sensor_msgs
 # )
 
 ################################################
@@ -108,9 +104,11 @@ target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  CATKIN_DEPENDS roscpp sensor_msgs pcl_ros pcl_conversions
+#  INCLUDE_DIRS include
+#  LIBRARIES rgbd_to_pcl
+#  CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensor_msgs
+#  DEPENDS system_lib
 )
-
 
 ###########
 ## Build ##

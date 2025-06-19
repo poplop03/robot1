@@ -24,6 +24,8 @@
   <include file="$(find openni_launch)/launch/openni.launch" >
     <arg name="depth_registration" value="true" />
   </include>
+
+  <include file="$(find pcl_ros)/launch/rgbd_to_pointcloud2.launch"/>
   
 </launch>
 

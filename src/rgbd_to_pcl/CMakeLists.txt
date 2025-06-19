@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(rgbd_to_pcl)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-##add_compile_options(-std=c++11)
+#add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -14,10 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
-add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
-target_link_libraries(rgbd_to_pcl_node ${catkin_LIBRARIES})
-# Removed circular dependency: add_dependencies(rgbd_to_pcl rgbd_to_pcl)
-
+# add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -122,7 +119,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+# include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -134,18 +131,18 @@ include_directories(
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/rgbd_to_pcl_node.cpp) # Original line for reference
+# add_executable(${PROJECT_NAME}_node src/rgbd_to_pcl_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-# set_target_properties(rgbd_to_pcl_node PROPERTIES OUTPUT_NAME node PREFIX "")
+# set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -172,7 +169,7 @@ include_directories(
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-# install(TARGETS rgbd_to_pcl_node
+# install(TARGETS ${PROJECT_NAME}_node
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
@@ -210,3 +207,8 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
+target_link_libraries(rgbd_to_pcl_node ${catkin_LIBRARIES})
+# add_dependencies(talker beginner_tutorials_generate_messages_cpp)

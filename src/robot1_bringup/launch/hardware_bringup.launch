@@ -26,6 +26,9 @@
   </include>
   
   <include file="$(find rgbd_to_pcl)/launch/rgbd_to_pcl.launch"/>
+
+    <!-- Launch Rosboard-->
+  <include file="$(find rosboard)/launch/rosboard.launch" />
 </launch>
 
 

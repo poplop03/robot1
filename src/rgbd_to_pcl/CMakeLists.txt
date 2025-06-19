@@ -9,9 +9,14 @@ project(rgbd_to_pcl)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
-  std_msgs
+  sensor_msgs
+  pcl_ros
+  pcl_conversions
 )
+
+add_executable(cloud_xyz_filter src/cloud_xyz_only.cpp)
+target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)

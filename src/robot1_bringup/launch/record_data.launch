@@ -6,9 +6,7 @@
   <!-- Record only selected topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-O $(arg output_dir)/$(arg bag_name).bag 
-              /camera/depth_registered/points 
-              /camera/depth/camera_info 
-              /camera/depth_registered/camera_info 
+              /points_xyz_downsampled
               /imu/butterfilter 
               /odom 
               /scan_multi 

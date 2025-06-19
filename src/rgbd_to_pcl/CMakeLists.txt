@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(rgbd_to_pcl)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+# add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_executable(rgbd_to_pcl src/rgbd_to_pcl.cpp)
 target_link_libraries(rgbd_to_pcl ${catkin_LIBRARIES})
-# Removed circular dependency: add_dependencies(rgbd_to_pcl rgbd_to_pcl)
+# add_dependencies(rgbd_to_pcl rgbd_to_pcl)
 
 
 ## System dependencies are found with CMake's conventions
@@ -122,7 +122,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+# include
   ${catkin_INCLUDE_DIRS}
 )
 

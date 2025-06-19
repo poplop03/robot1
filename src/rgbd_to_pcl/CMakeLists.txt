@@ -108,11 +108,9 @@ target_link_libraries(cloud_xyz_filter ${catkin_LIBRARIES})
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES rgbd_to_pcl
-#  CATKIN_DEPENDS roscpp rospy std_msgs
-#  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp sensor_msgs pcl_ros pcl_conversions
 )
+
 
 ###########
 ## Build ##

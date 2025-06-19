@@ -1,5 +1,5 @@
 <launch>
     <node name="cloud_xyz_filter" pkg="rgbd_to_pcl" type="rgbd_to_pcl_node" output="screen">
-    <param name="publish_rate" value="15.0" />
+    <param name="publish_rate" value="20.0" />
     </node>
 </launch>

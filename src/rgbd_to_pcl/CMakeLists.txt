@@ -14,8 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
-add_executable(rgbd_to_pcl src/rgbd_to_pcl.cpp)
-target_link_libraries(rgbd_to_pcl ${catkin_LIBRARIES})
+add_executable(rgbd_to_pcl_node src/rgbd_to_pcl.cpp)
+target_link_libraries(rgbd_to_pcl_node ${catkin_LIBRARIES})
 # add_dependencies(rgbd_to_pcl rgbd_to_pcl)
 
 

@@ -7,6 +7,7 @@
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-O $(arg output_dir)/$(arg bag_name).bag 
               /points_xyz_downsampled
+              /depth_scan_kinect
               /imu/butterfilter 
               /odom 
               /scan_multi 

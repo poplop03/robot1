@@ -19,6 +19,9 @@
 
       <!-- Launch lidar merge -->
   <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
+
+      <!-- Launch depth to laser scan -->
+  <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
   
   <!-- Start kinect360 -->
   <include file="$(find openni_launch)/launch/openni.launch" >

@@ -12,7 +12,6 @@
               /imu/butterfilter 
               /odom 
               /scan_multi 
-              /scan_ydlidar 
               /hoverboard_velocity_controller/odom
               /tf
               /tf_static" />

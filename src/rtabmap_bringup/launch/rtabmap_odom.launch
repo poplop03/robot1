@@ -25,7 +25,7 @@
           <param name="subscribe_scan" type="bool" value="true"/>
 
           <remap from="odom" to="/odom"/>
-          <remap from="scan" to="/scan_ydlidar"/>
+          <remap from="scan" to="/scan_multi"/>
           <remap from="rgbd_image" to="rgbd_image"/>
 
           <param name="queue_size" type="int" value="30"/>

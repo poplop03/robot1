@@ -44,8 +44,6 @@
     </rosparam>
   </node>
 
-
-
     <!-- Launch Rosboard-->
   <include file="$(find rosboard)/launch/rosboard.launch" />
 </launch>

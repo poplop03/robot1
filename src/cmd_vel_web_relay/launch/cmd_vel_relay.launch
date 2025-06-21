@@ -1,4 +1,4 @@
 <launch>
-  <node name="cmd_vel_relay" pkg="your_package_name" type="cmd_vel_relay.py" output="screen" />
+  <node name="cmd_vel_relay" pkg="cmd_vel_web_relay" type="cmd_vel_relay.py" output="screen" />
 </launch>
 

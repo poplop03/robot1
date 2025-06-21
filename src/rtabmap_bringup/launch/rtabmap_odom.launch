@@ -20,21 +20,21 @@
 
           <!-- RTAB-Map's parameters -->
           <!-- Publish assembled 3D cloud -->
-          <param name="Cloud/Enabled" type="string" value="true"/>
+          <!-- <param name="Cloud/Enabled" type="string" value="true"/>
           <param name="Cloud/Assemble" type="string" value="true"/>
-          <param name="Cloud/PublishingRate" type="string" value="3"/> <!-- 1 Hz -->
-          <param name="Grid/3D" type="string" value="true"/> <!-- Enables 3D projection -->
-          <param name="Grid/FromDepth" type="string" value="false"/>         <!-- Not using RGB-D for grid -->
-          <param name="Cloud/VoxelSize" type="string" value="0.05"/>         <!-- Optional: voxel filter -->
-          <param name="Reg/Force3DoF" type="string" value="false"/>          <!-- Important: enable full 6DoF SLAM -->
+          <param name="Cloud/PublishingRate" type="string" value="3"/>
+          <param name="Grid/3D" type="string" value="true"/>
+          <param name="Grid/FromDepth" type="string" value="false"/>         
+          <param name="Cloud/VoxelSize" type="string" value="0.05"/>        
+          <param name="Reg/Force3DoF" type="string" value="false"/>           -->
 
-<!-- 
+
           <param name="Grid/3D" type="string" value="true"/>
           <param name="Grid/FromDepth" type="string" value="false"/>
           <param name="Cloud/Enabled" type="string" value="true"/>
           <param name="Cloud/Assemble" type="string" value="true"/>
           <param name="Cloud/VoxelSize" type="string" value="0.05"/>
-          <param name="Reg/Force3DoF" type="string" value="false"/> -->
+          <param name="Reg/Force3DoF" type="string" value="false"/>
 
 
 

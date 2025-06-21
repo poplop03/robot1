@@ -19,20 +19,14 @@
           <param name="queue_size" type="int" value="30"/>
 
           <!-- RTAB-Map's parameters -->
-          <param name="RGBD/NeighborLinkRefining" type="string" value="true"/>
-          <param name="RGBD/ProximityBySpace"     type="string" value="true"/>
-          <param name="RGBD/AngularUpdate"        type="string" value="0.01"/>
-          <param name="RGBD/LinearUpdate"         type="string" value="0.01"/>
-          <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
-          <param name="Grid/FromDepth"            type="string" value="false"/> <!-- occupancy grid from lidar -->
-          <param name="Reg/Force3DoF"             type="string" value="true"/>
-          <param name="Reg/Strategy"              type="string" value="1"/> <!-- 1=ICP -->
-          <param name="Rtabmap/DetectionRate"     type="string" value="10"/>
+          <!-- Publish assembled 3D cloud -->
+          <param name="Cloud/Enabled" type="string" value="true"/>
+          <param name="Cloud/Assemble" type="string" value="true"/>
+          <param name="Cloud/PublishingRate" type="string" value="1"/> <!-- 1 Hz -->
+          <param name="Grid/3D" type="string" value="true"/> <!-- Enables 3D projection -->
+          <param name="RGBD/ProximityBySpace" type="string" value="true"/>
+          <param name="Reg/Force3DoF" type="string" value="false"/> <!-- Important for 3D -->
 
-            
-          <!-- ICP parameters -->
-          <param name="Icp/VoxelSize"                 type="string" value="0.05"/>
-          <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.1"/>
     </node>
   </group>
 </launch>

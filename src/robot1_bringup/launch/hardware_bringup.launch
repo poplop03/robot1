@@ -22,6 +22,8 @@
 
       <!-- Launch depth to laser scan -->
   <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
+
+  <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/>
   
   <!-- Start kinect360 -->
   <include file="$(find openni_launch)/launch/openni.launch" >

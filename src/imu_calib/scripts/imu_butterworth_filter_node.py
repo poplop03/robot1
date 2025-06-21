@@ -24,7 +24,7 @@ class ImuButterFilterNode:
     def __init__(self):
         rospy.init_node('imu_butter_filter_node')
 
-        self.fs = 50.0  # Fixed publish rate: 50 Hz
+        self.fs = 100.0  # Fixed publish rate: 50 Hz
         self.cutoff = rospy.get_param("~cutoff_freq", 5.0)
         self.order = rospy.get_param("~filter_order", 2)
 

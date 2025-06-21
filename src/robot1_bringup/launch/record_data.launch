@@ -2,7 +2,7 @@
   <!-- Define fixed save directory and bag filename -->
   <arg name="output_dir" default="/home/duc/rosbags"/>
   <arg name="bag_name" default="slam_data"/>
-
+      <!-- /hoverboard_velocity_controller/odom -->
   <!-- Record only selected topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-O $(arg output_dir)/$(arg bag_name).bag 
@@ -11,8 +11,7 @@
               /depth_scan_kinect
               /imu/butterfilter 
               /odom 
-              /scan_multi 
-              /hoverboard_velocity_controller/odom
+              /scan_multi
               /tf
               /tf_static" />
 </launch>

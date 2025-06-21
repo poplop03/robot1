@@ -4,7 +4,7 @@
   <!-- Launch Ros bridge for web teleop and managing -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
-  <!-- <include file="$(find rtabmap_bringup)/launch/rtabmap_odom.launch"/> -->
+  <include file="$(find rtabmap_bringup)/launch/rtabmap_odom.launch"/>
 
   <include file="$(find robot1_bringup)/launch/record_data.launch"/>
 </launch>

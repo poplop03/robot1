@@ -62,7 +62,7 @@ class ImuButterFilterNode:
                 # Linear acceleration
                 filtered.linear_acceleration.x = self.filter.filter_acc(msg.linear_acceleration.x, 0)
                 filtered.linear_acceleration.y = self.filter.filter_acc(msg.linear_acceleration.y, 1)
-                filtered.linear_acceleration.z = self.filter.filter_acc(msg.linear_acceleration.z, 2)
+                filtered.linear_acceleration.z = msg.linear_acceleration.z
 
                 self.pub.publish(filtered)
 

@@ -9,7 +9,8 @@
               /points_xyz_downsampled
               /scan_front180
               /depth_scan_kinect
-              /imu/butterfilter 
+              /imu/butterfilter
+              /imu/butterfilter/ignore_z 
               /odom 
               /scan_multi 
               /hoverboard_velocity_controller/odom

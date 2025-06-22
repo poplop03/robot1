@@ -18,4 +18,7 @@
     <param name="filter_order" value="2"/>
   </node>
 
+    <node pkg="imu_calib" type="imu_ignore_zy.py" name="imu_ignore_z_for_carto" output="screen">
+  </node>
+
 </launch>

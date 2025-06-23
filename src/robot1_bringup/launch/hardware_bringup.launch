@@ -3,7 +3,8 @@
   <include file="$(find robot_description_v5)/launch/robot_des_from_robot.launch" />
   
   <!-- Launch IMU -->
-  <include file="$(find imu_calib)/launch/imu_butterworth.launch" />
+  <!-- <include file="$(find imu_calib)/launch/imu_butterworth.launch" /> -->
+  <include file="$(find imu_bno055_arduino)/launch/bno055_fused.launch" />
 
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
@@ -21,7 +22,7 @@
   <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
 
       <!-- Launch depth to laser scan -->
-  <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
+  <include file="$(find kinect360)/launch/kinect360_deptsensor_fuseh_to_laser.launch"/>
 
   <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/>
   

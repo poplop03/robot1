@@ -22,7 +22,7 @@
   <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
 
       <!-- Launch depth to laser scan -->
-  <include file="$(find kinect360)/launch/kinect360_deptsensor_fuseh_to_laser.launch"/>
+  <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
 
   <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/>
   

@@ -5,6 +5,8 @@
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
   <!-- <include file="$(find rtabmap_bringup)/launch/rtabmap_pcl.launch"/> -->
+  <include file="$(find robot1_bringup)/launch/gmapping_config.launch" />
+
 
   <include file="$(find robot1_bringup)/launch/record_data.launch"/>
 </launch>

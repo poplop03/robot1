@@ -1,0 +1,9 @@
+<!-- imu_bno055.launch -->
+<launch>
+  <node pkg="imu_bno055_arduino" type="imu_bno055_node" name="imu_bno055_node" output="screen">
+    <remap from="/raw" to="/imu/raw"/>
+    <remap from="/data" to="/imu/data"/>
+    <remap from="/mag" to="/imu/mag"/>
+    <remap from="/temp" to="/imu/temp"/>
+  </node>
+</launch>

@@ -4,7 +4,7 @@
   
   <!-- Launch IMU -->
   <!-- <include file="$(find imu_calib)/launch/imu_butterworth.launch" /> -->
-  <include file="$(find imu_bno055_arduino)/launch/bno055_fused.launch" />
+  <include file="$(find ros_imu_bno055)/launch/imu.launch" />
 
   <!-- Launch Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />

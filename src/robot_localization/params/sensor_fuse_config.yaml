@@ -144,7 +144,7 @@ odom0_relative: false
 # odom2_relative: false
 
 
-imu0: /imu/data
+imu0: /imu/normalized
 imu0_config: [false, false, false,
               false, false, true,
               false, false, false,
@@ -158,7 +158,7 @@ imu0_linear_acceleration_rejection_threshold: 0.8  #
 
 # [ADVANCED] Some IMUs automatically remove acceleration due to gravity, and others don't. If yours doesn't, please set
 # this to true, and *make sure* your data conforms to REP-103, specifically, that the data is in ENU frame.
-imu0_remove_gravitational_acceleration: true
+imu0_remove_gravitational_acceleration: false
 
 # [ADVANCED]  The EKF and UKF models follow a standard predict/correct cycle. During prediction, if there is no
 # acceleration reference, the velocity at time t+1 is simply predicted to be the same as the velocity at time t. During

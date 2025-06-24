@@ -7,7 +7,7 @@ transform_tolerance: 0.5
 observation_sources: scan
 scan:
   data_type: LaserScan
-  topic: scan_multi
+  topic: scan_front180
   marking: true
   clearing: true
 

@@ -9,5 +9,4 @@ scan:
   topic: scan_front180
   marking: true
   clearing: true
-
 map_type: costmap

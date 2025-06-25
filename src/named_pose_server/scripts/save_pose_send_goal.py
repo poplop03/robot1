@@ -89,7 +89,8 @@ class SavePoseSendGoalNode:
         goal.pose.orientation.y = q[1]
         goal.pose.orientation.z = q[2]
         goal.pose.orientation.w = q[3]
-
+        
+        rospy.sleep(0.5)
         self.pose_pub.publish(goal)
         rospy.loginfo(f"🚀 Sent goal to '{name}'")
         return TriggerResponse(success=True, message=f"Sent goal to '{name}'")

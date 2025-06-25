@@ -8,8 +8,5 @@
     <param name="range_max" value="3" />
     <param name="scan_time" value="0.06" />
     <param name="scan_height" value="200" />
-
-
-    
   </node>
 </launch> 

@@ -1,0 +1,7 @@
+<launch>
+  <arg name="yaml_file" default="$(find named_pose_server)/config/named_poses.yaml" />
+
+  <node pkg="named_pose_server" type="save_pose_send_goal.py" name="save_pose_send_goal" output="screen">
+    <param name="yaml_path" value="$(arg yaml_file)" />
+  </node>
+</launch>

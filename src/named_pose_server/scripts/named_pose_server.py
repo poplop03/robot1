@@ -9,7 +9,7 @@ from std_srvs.srv import Trigger, TriggerResponse
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import String
 
-class NamedPoseServer:
+class NamedPoseServer:  
     def __init__(self):
         rospy.init_node("named_pose_server")
 

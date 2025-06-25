@@ -1,5 +1,4 @@
 <!-- DESCRITPION -->
-
 <launch>
 	<node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
 	<param name="destination_frame" value="lidar_link"/>

@@ -9,10 +9,9 @@
               /points_xyz_downsampled
               /scan_front180
               /depth_scan_kinect
-              /imu/raw
+              /imu/normalized
               /imu/data
-              /odom 
-              /scan_multi 
+              /odom
               /hoverboard_velocity_controller/odom
               /tf
               /tf_static" />

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import rospkg
 import rospy
 import tf
 import os

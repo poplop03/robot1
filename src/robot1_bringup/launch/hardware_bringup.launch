@@ -28,8 +28,8 @@
 
   <!-- Launch lidar merge -->
   <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
-<!-- 
-  <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/> -->
+
+  <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/>
   
   <include file="$(find rgbd_to_pcl)/launch/rgbd_to_pcl.launch"/>
 

@@ -20,6 +20,8 @@ class SavePoseSendGoalNode:
 
         rospy.Service('/save_pose_send_goal/save_pose', Trigger, self.save_pose_callback)
         rospy.Service('/save_pose_send_goal/send_goal', Trigger, self.send_goal_callback)
+        rospy.Service('/save_pose_send_goal/list_poses', Trigger, self.list_poses_callback)
+
 
         rospy.loginfo("✅ save_pose_send_goal node ready.")
 
@@ -75,6 +77,20 @@ class SavePoseSendGoalNode:
         if name not in poses:
             rospy.logwarn(f"⚠️ Pose '{name}' not found.")
             return TriggerResponse(success=False, message=f"Pose '{name}' not found")
+    
+    def list_poses_callback(self, req):
+        if not os.path.exists(self.yaml_path):
+            return TriggerResponse(success=False, message="No poses saved.")
+
+        with open(self.yaml_path, 'r') as f:
+            poses = yaml.safe_load(f) or {}
+
+        if not poses:
+            return TriggerResponse(success=True, message="No saved poses found.")
+
+        pose_names = list(poses.keys())
+        return TriggerResponse(success=True, message=", ".join(pose_names))
+
 
         pose = poses[name]
         goal = PoseStamped()

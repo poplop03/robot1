@@ -77,20 +77,6 @@ class SavePoseSendGoalNode:
         if name not in poses:
             rospy.logwarn(f"⚠️ Pose '{name}' not found.")
             return TriggerResponse(success=False, message=f"Pose '{name}' not found")
-    
-    def list_poses_callback(self, req):
-        if not os.path.exists(self.yaml_path):
-            return TriggerResponse(success=False, message="No poses saved.")
-
-        with open(self.yaml_path, 'r') as f:
-            poses = yaml.safe_load(f) or {}
-
-        if not poses:
-            return TriggerResponse(success=True, message="No saved poses found.")
-
-        pose_names = list(poses.keys())
-        return TriggerResponse(success=True, message=", ".join(pose_names))
-
 
         pose = poses[name]
         goal = PoseStamped()
@@ -110,6 +96,20 @@ class SavePoseSendGoalNode:
         self.pose_pub.publish(goal)
         rospy.loginfo(f"🚀 Sent goal to '{name}'")
         return TriggerResponse(success=True, message=f"Sent goal to '{name}'")
+    
+    def list_poses_callback(self, req):
+        if not os.path.exists(self.yaml_path):
+            return TriggerResponse(success=False, message="No poses saved.")
+
+        with open(self.yaml_path, 'r') as f:
+            poses = yaml.safe_load(f) or {}
+
+        if not poses:
+            return TriggerResponse(success=True, message="No saved poses found.")
+
+        pose_names = list(poses.keys())
+        return TriggerResponse(success=True, message=", ".join(pose_names))
+
 
 if __name__ == '__main__':
     try:

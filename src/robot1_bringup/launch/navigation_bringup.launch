@@ -6,6 +6,8 @@
   <!-- Launch amcl -->
   <include file="$(find robot1_nav)/launch/move_base.launch" />
 
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
   <!-- Add any static transforms, RViz, etc. here -->
   <include file="$(find named_pose_server)/launch/save_pose_send_goal.launch" />
 </launch>

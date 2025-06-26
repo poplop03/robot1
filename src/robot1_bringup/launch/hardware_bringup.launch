@@ -15,21 +15,21 @@
   <!-- Launch lidar -->
   <include file="$(find ydlidar_ros_driver)/launch/lidar_ydlidarX3.launch" />
 
-      <!-- Launch lidar cut -->
-  <include file="$(find laser_filters)/launch/robot1_angle_filter.launch"/>
-
-      <!-- Launch lidar merge -->
-  <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
-
-      <!-- Launch depth to laser scan -->
-  <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
-
-  <!-- <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/> -->
-  
   <!-- Start kinect360 -->
   <include file="$(find openni_launch)/launch/openni.launch" >
     <arg name="depth_registration" value="true" />
   </include>
+
+  <!-- Launch depth to laser scan -->
+  <include file="$(find kinect360)/launch/kinect360_depth_to_laser.launch"/>
+
+  <!-- Launch lidar cut -->
+  <include file="$(find laser_filters)/launch/robot1_angle_filter.launch"/>
+
+  <!-- Launch lidar merge -->
+  <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch"/>
+
+  <include file="$(find cmd_vel_web_relay)/launch/cmd_vel_relay.launch"/>
   
   <include file="$(find rgbd_to_pcl)/launch/rgbd_to_pcl.launch"/>
 
@@ -51,7 +51,7 @@
   </node>
 
     <!-- Launch Rosboard-->
-  <include file="$(find rosboard)/launch/rosboard.launch" />
+  <!-- <include file="$(find rosboard)/launch/rosboard.launch" /> -->
 </launch>
 
 

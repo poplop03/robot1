@@ -1,10 +1,14 @@
-<launch>
-  <!-- robot description -->  
+<launch>  
+  <!-- Launch hardware -->
   <include file="$(find robot1_bringup)/launch/hardware_bringup.launch" />
+  <!-- Launch Ros bridge for web teleop and managing -->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
-  <!-- Launch amcl -->
+    <!-- Launch amcl -->
   <include file="$(find robot1_nav)/launch/move_base.launch" />
 
   <!-- Add any static transforms, RViz, etc. here -->
   <include file="$(find named_pose_server)/launch/save_pose_send_goal.launch" />
+
+  <include file="$(find robot1_bringup)/launch/record_data.launch"/>
 </launch>

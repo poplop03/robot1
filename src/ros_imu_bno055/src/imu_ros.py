@@ -49,9 +49,9 @@ from std_srvs.srv import Trigger, TriggerResponse
 
 # rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 base_link imu_link 1000
 
-linear_acceleration_stddev = 0.0
-angular_velocity_stddev = 0.0
-orientation_stddev = 0.0
+linear_acceleration_stddev = 0.1
+angular_velocity_stddev = 0.1
+orientation_stddev = 0.1
 
 class SensorIMU:
 

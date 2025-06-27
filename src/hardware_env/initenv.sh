@@ -16,7 +16,7 @@ echo 'KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE
 service udev reload
 sleep 2
 service udev restart
-#fef
+
 echo "Done! hoverboard and lidar port init-ed."
 
 

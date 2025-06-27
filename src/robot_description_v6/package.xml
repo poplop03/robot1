@@ -1,10 +1,10 @@
 <package format="2">
-  <name>robot_description_v5</name>
+  <name>robot_description_v6</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for robot_description_v5</p>
+    <p>URDF Description package for robot_description_v6</p>
     <p>This package contains configuration data, 3D models and launch files
-for robot_description_v5 robot</p>
+for robot_description_v6 robot</p>
   </description>
   <author>TODO</author>
   <maintainer email="TODO@email.com" />

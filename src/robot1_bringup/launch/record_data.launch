@@ -9,6 +9,7 @@
               /points_xyz_downsampled
               /scan_front180
               /depth_scan_kinect
+              /scan_ydlidar
               /imu/normalized
               /imu/data
               /odom

@@ -17,6 +17,7 @@ service udev reload
 sleep 2
 service udev restart
 
+#meoemeo
 echo "Done! hoverboard and lidar port init-ed."
 
 

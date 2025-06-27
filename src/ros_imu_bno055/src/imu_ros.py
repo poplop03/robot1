@@ -49,6 +49,10 @@ from std_srvs.srv import Trigger, TriggerResponse
 
 # rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 base_link imu_link 1000
 
+linear_acceleration_stddev = 0.0
+angular_velocity_stddev = 0.0
+orientation_stddev = 0.0
+
 class SensorIMU:
 
     def __init__(self):
@@ -295,21 +299,17 @@ class SensorIMU:
         imu_data.angular_velocity.y = gyroscope[1]
         imu_data.angular_velocity.z = gyroscope[2]
 
-        imu_data.orientation_covariance = [
-            0.01, 0.0,  0.0,
-            0.0,  0.01, 0.0,
-            0.0,  0.0,  0.01
-        ]
-        imu_data.angular_velocity_covariance = [
-            0.02, 0.0,  0.0,
-            0.0,  0.02, 0.0,
-            0.0,  0.0,  0.02
-        ]
-        imu_data.linear_acceleration_covariance = [
-            0.1,  0.0,  0.0,
-            0.0,  0.1,  0.0,
-            0.0,  0.0,  0.1
-        ]
+        imu_data.linear_acceleration_covariance[0] = linear_acceleration_stddev
+        imu_data.linear_acceleration_covariance[4] = linear_acceleration_stddev
+        imu_data.linear_acceleration_covariance[8] = linear_acceleration_stddev
+
+        imu_data.angular_velocity_covariance[0] = angular_velocity_stddev
+        imu_data.angular_velocity_covariance[4] = angular_velocity_stddev
+        imu_data.angular_velocity_covariance[8] = angular_velocity_stddev
+
+        imu_data.orientation_covariance[0] = orientation_stddev
+        imu_data.orientation_covariance[4] = orientation_stddev
+        imu_data.orientation_covariance[8] = orientation_stddev
 
         self.imu_data_seq_counter=+1
 

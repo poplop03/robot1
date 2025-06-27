@@ -3,21 +3,21 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="robot_description_v6">
+  name="robot_description_v7">
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.0283696678283355 -0.00533876695224444 0.0709761613282046"
+        xyz="0.0283696678283404 -0.00533876695224345 0.0709761613282027"
         rpy="0 0 0" />
       <mass
-        value="9.39619068658646" />
+        value="9.39619068658661" />
       <inertia
         ixx="0.0377507857214502"
-        ixy="-0.000252609529514144"
-        ixz="0.000472445125057066"
+        ixy="-0.00025260952951414"
+        ixz="0.000472445125057065"
         iyy="0.0596692828570826"
-        iyz="-6.23805138012882E-07"
+        iyz="-6.23805138011396E-07"
         izz="0.0745531132620247" />
     </inertial>
     <visual>
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/base_link.STL" />
+          filename="package://robot_description_v7/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/base_link.STL" />
+          filename="package://robot_description_v7/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,17 +48,17 @@
     name="lidar_link">
     <inertial>
       <origin
-        xyz="0.0148383171368051 0.00044768343099888 -0.0211536208187281"
+        xyz="0.0148383171366355 0.000447683430938262 -0.0211536208206848"
         rpy="0 0 0" />
       <mass
-        value="0.0312409127404862" />
+        value="0.0312409127406477" />
       <inertia
-        ixx="8.88026370808536E-06"
-        ixy="-1.77664494264146E-07"
-        ixz="1.13027679908929E-07"
-        iyy="1.44910018203742E-05"
-        iyz="3.46076114959003E-08"
-        izz="2.25289099518335E-05" />
+        ixx="8.88026370810989E-06"
+        ixy="-1.77664494330293E-07"
+        ixz="1.1302767991708E-07"
+        iyy="1.44910018205434E-05"
+        iyz="3.4607611499615E-08"
+        izz="2.25289099520269E-05" />
     </inertial>
     <visual>
       <origin
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/lidar_link.STL" />
+          filename="package://robot_description_v7/meshes/lidar_link.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/lidar_link.STL" />
+          filename="package://robot_description_v7/meshes/lidar_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -101,17 +101,17 @@
     name="imu_link">
     <inertial>
       <origin
-        xyz="-0.0126528450667811 -0.0126936660237145 -0.00550000000000006"
+        xyz="-0.0126528450668609 -0.0126936660240067 -0.00550000000000006"
         rpy="0 0 0" />
       <mass
         value="0.00712049275087492" />
       <inertia
-        ixx="4.56098515619146E-07"
-        ixy="9.31843930741958E-09"
-        ixz="-1.11028325685135E-22"
+        ixx="4.56098515619147E-07"
+        ixy="9.31843930741966E-09"
+        ixz="-1.09369951241934E-22"
         iyy="4.56158545750304E-07"
-        iyz="-1.42868794364995E-21"
-        izz="7.68660457560138E-07" />
+        iyz="-1.2528223878318E-21"
+        izz="7.68660457560139E-07" />
     </inertial>
     <visual>
       <origin
@@ -119,7 +119,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/imu_link.STL" />
+          filename="package://robot_description_v7/meshes/imu_link.STL" />
       </geometry>
       <material
         name="">
@@ -133,22 +133,22 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/imu_link.STL" />
+          filename="package://robot_description_v7/meshes/imu_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="imu"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.15399361324347 -0.0854574244366719 0.0409999999999995"
+      xyz="0.15399 -0.085457 0.041"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
       link="imu_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="right_wheel_link">
@@ -160,10 +160,10 @@
         value="0.98170665090244" />
       <inertia
         ixx="0.00165298851738423"
-        ixy="-1.0124915182157E-05"
-        ixz="1.30270760846516E-08"
-        iyy="0.00287861950962305"
-        iyz="5.32883625884099E-10"
+        ixy="-1.01249151821569E-05"
+        ixz="1.30270760846625E-08"
+        iyy="0.00287861950962306"
+        iyz="5.32883625868118E-10"
         izz="0.00165292257365774" />
     </inertial>
     <visual>
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/right_wheel_link.STL" />
+          filename="package://robot_description_v7/meshes/right_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -186,7 +186,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/right_wheel_link.STL" />
+          filename="package://robot_description_v7/meshes/right_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -194,14 +194,14 @@
     name="right_wheel"
     type="continuous">
     <origin
-      xyz="0.00157556970077044 -0.175020257687692 0.0150000000042175"
+      xyz="0.0015756 -0.17502 0.015"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
       link="right_wheel_link" />
     <axis
-      xyz="-0.00825691107326283 0.999965911128739 0" />
+      xyz="-0.0082569 0.99997 0" />
   </joint>
   <link
     name="left_wheel_link">
@@ -214,9 +214,9 @@
       <inertia
         ixx="0.00165299120834847"
         ixy="-1.01249109871006E-05"
-        ixz="-1.4498411509328E-08"
+        ixz="-1.44984115092976E-08"
         iyy="0.00287861950901393"
-        iyz="7.25004217200697E-11"
+        iyz="7.25004217282431E-11"
         izz="0.00165291988234476" />
     </inertial>
     <visual>
@@ -225,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/left_wheel_link.STL" />
+          filename="package://robot_description_v7/meshes/left_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -239,7 +239,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/left_wheel_link.STL" />
+          filename="package://robot_description_v7/meshes/left_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -247,29 +247,29 @@
     name="left_wheel"
     type="continuous">
     <origin
-      xyz="-0.00131434917487327 0.174967811207364 0.0150000000042175"
+      xyz="-0.0013143 0.17497 0.015"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
       link="left_wheel_link" />
     <axis
-      xyz="0.00825691107326281 -0.999965911128739 0" />
+      xyz="0.0082569 -0.99997 0" />
   </joint>
   <link
     name="camera_link">
     <inertial>
       <origin
-        xyz="-0.0286974043856941 -0.00315323141543045 -0.00696427170361802"
+        xyz="-0.0286974043856941 -0.00315323141543045 -0.0069642717036188"
         rpy="0 0 0" />
       <mass
         value="0.646454884722171" />
       <inertia
-        ixx="0.0028423827313704"
+        ixx="0.00284238273162732"
         ixy="1.87273045722636E-05"
-        ixz="1.48075090936096E-07"
-        iyy="0.000263758634244186"
-        iyz="-3.33736128214466E-08"
+        ixz="1.48075090926775E-07"
+        iyy="0.000263758634501103"
+        iyz="-3.33736129073467E-08"
         izz="0.00296274058967308" />
     </inertial>
     <visual>
@@ -278,7 +278,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/camera_link.STL" />
+          filename="package://robot_description_v7/meshes/camera_link.STL" />
       </geometry>
       <material
         name="">
@@ -292,7 +292,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_description_v6/meshes/camera_link.STL" />
+          filename="package://robot_description_v7/meshes/camera_link.STL" />
       </geometry>
     </collision>
   </link>

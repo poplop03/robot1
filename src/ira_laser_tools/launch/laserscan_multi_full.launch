@@ -8,7 +8,7 @@
 	<param name="angle_min" value="-3.14"/>
 	<param name="angle_max" value="3.14"/>
 	<param name="angle_increment" value="0.0058"/>
-	<param name="scan_time" value="0.1"/>
+	<param name="scan_time" value="0.08333333333"/>
 	<param name="range_min" value="0.1"/>
 	<param name="range_max" value="8.0"/>
 	</node>

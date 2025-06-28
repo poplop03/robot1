@@ -11,7 +11,7 @@ scan_filter_chain:
   type: laser_filters/LaserScanAngularBoundsFilter
   params:
     lower_angle: 1.2
-    upper_angle: 2.5
+    upper_angle: 2.2
 
 
 

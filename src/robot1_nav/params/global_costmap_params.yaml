@@ -6,5 +6,5 @@ global_costmap:
   static_map: true
   transform_tolerance: 0.5
   cost_scaling_factor: 20
-  inflation_radius: 0.8
+  inflation_radius: 0.2
   transform_tolerance: 0.5

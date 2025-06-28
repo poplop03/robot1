@@ -312,10 +312,46 @@ class SensorIMU:
         # imu_data.orientation_covariance[8] = orientation_stddev **2
 
 
-        imu_data.orientation_covariance[0] = -1
-        imu_data.linear_acceleration_covariance[0] = -1
-        imu_data.angular_velocity_covariance[0] = -1
-        
+        # imu_data.orientation_covariance[0] = -1
+        # imu_data.linear_acceleration_covariance[0] = -1
+        # imu_data.angular_velocity_covariance[0] = -1
+
+
+        imu_data.orientation_covariance[0] = 0.002 # Variance for roll (radians^2)
+        imu_data.orientation_covariance[1] = 0.0 # Off-diagonal, often 0 or very small
+        imu_data.orientation_covariance[2] = 0.0
+        imu_data.orientation_covariance[3] = 0.0
+        imu_data.orientation_covariance[4] = 0.002 # Variance for pitch (radians^2)
+        imu_data.orientation_covariance[5] = 0.0
+        imu_data.orientation_covariance[6] = 0.0
+        imu_data.orientation_covariance[7] = 0.0
+        imu_data.orientation_covariance[8] = 0.005 # Variance for yaw (radians^2) - often slightly higher due to magnetic noise
+
+        # Linear Acceleration Covariance (for X, Y, Z acceleration)
+        # These are for gravity-compensated linear acceleration.
+        # The units are (m/s^2)^2.
+        imu_data.linear_acceleration_covariance[0] = 0.02 # Variance for ax
+        imu_data.linear_acceleration_covariance[1] = 0.0
+        imu_data.linear_acceleration_covariance[2] = 0.0
+        imu_data.linear_acceleration_covariance[3] = 0.0
+        imu_data.linear_acceleration_covariance[4] = 0.02 # Variance for ay
+        imu_data.linear_acceleration_covariance[5] = 0.0
+        imu_data.linear_acceleration_covariance[6] = 0.0
+        imu_data.linear_acceleration_covariance[7] = 0.0
+        imu_data.linear_acceleration_covariance[8] = 0.03 # Variance for az (if using 3D)
+
+        # Angular Velocity Covariance (for Roll rate, Pitch rate, Yaw rate)
+        # The units are (rad/s)^2.
+        imu_data.angular_velocity_covariance[0] = 0.0001 # Variance for vroll
+        imu_data.angular_velocity_covariance[1] = 0.0
+        imu_data.angular_velocity_covariance[2] = 0.0
+        imu_data.angular_velocity_covariance[3] = 0.0
+        imu_data.angular_velocity_covariance[4] = 0.0001 # Variance for vpitch
+        imu_data.angular_velocity_covariance[5] = 0.0
+        imu_data.angular_velocity_covariance[6] = 0.0
+        imu_data.angular_velocity_covariance[7] = 0.0
+        imu_data.angular_velocity_covariance[8] = 0.0005 # Variance for vyaw (often a bit higher than roll/pitch rates)
+
         self.imu_data_seq_counter=+1
 
         self.pub_imu_data.publish(imu_data)

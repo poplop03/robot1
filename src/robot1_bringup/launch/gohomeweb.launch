@@ -3,8 +3,8 @@
   <include file="$(find robot1_bringup)/launch/hardware_bringup.launch" />
   <!-- Launch Ros bridge for web teleop and managing -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
-
-  <include file="$(find robot1_bringup)/launch/record_data.launch"/>
+<!-- 
+  <include file="$(find robot1_bringup)/launch/record_data.launch"/> -->
 
   <!-- <include file="$(find rtabmap_bringup)/launch/rtabmap_pcl.launch"/> -->
 </launch> 

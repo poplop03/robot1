@@ -11,7 +11,8 @@
               /odom
               /hoverboard_velocity_controller/odom
               /tf
-              /tf_static" />
+              /tf_static 
+              /amcl_pose" />
 
 
 

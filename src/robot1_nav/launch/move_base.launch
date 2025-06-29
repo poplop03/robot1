@@ -18,6 +18,7 @@
         <param name="controller_patience" value="3.0" />
         <param name="oscillation_timeout" value="10.0" />
         <param name="oscillation_distance" value="0.5" />
+        <rosparam file="$(find robot1_nav)/params/global_planner_params.yaml" command="load" />
         <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
         <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find robot1_nav)/params/local_costmap_params.yaml" command="load" />

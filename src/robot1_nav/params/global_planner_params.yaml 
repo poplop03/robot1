@@ -1,0 +1,4 @@
+NavfnROS:
+  use_current_pose: true            # ✅ This is the key fix
+  allow_unknown: true
+  default_tolerance: 0.5

@@ -6,11 +6,6 @@
   <!-- Record only selected topics -->
   <node name="rosbag_recorder" pkg="rosbag" type="record" output="screen"
         args="-O $(arg output_dir)/$(arg bag_name).bag 
-              /points_xyz_downsampled
-              /scan_front180
-              /depth_scan_kinect
-              /scan_ydlidar
-              /scan_super
               /imu/normalized
               /imu/data
               /odom
@@ -20,5 +15,11 @@
 
 
 
+
+              <!-- /points_xyz_downsampled
+              /scan_front180
+              /depth_scan_kinect
+              /scan_ydlidar
+              /scan_super -->
 </launch>
 

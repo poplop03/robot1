@@ -1,4 +1,4 @@
-image: /home/duc/ROS1/robot1/src/robot1_nav/map/ydlidar.pgm
+image: /home/duc/ROS1/robot1/src/robot1_nav/map/ydlidar_fixed.pgm
 resolution: 0.05
 origin: [-33.6, -65.95, 3.14]
 negate: 0

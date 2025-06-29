@@ -12,6 +12,12 @@
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         <remap from="/cmd_vel" to="/hoverboard_velocity_controller/cmd_vel"/>
+        <param name="planner_frequency" value="1.0" />
+        <param name="controller_frequency" value="10.0" />
+        <param name="planner_patience" value="5.0" />
+        <param name="controller_patience" value="3.0" />
+        <param name="oscillation_timeout" value="10.0" />
+        <param name="oscillation_distance" value="0.5" />
         <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
         <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find robot1_nav)/params/local_costmap_params.yaml" command="load" />

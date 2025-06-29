@@ -22,6 +22,7 @@
 
         <!-- <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
         <rosparam file="$(find robot1_nav)/params/costmap_common_params.yaml" command="load" ns="local_costmap" /> -->
+        <rosparam file="$(find robot1_nav)/params/global_planner_params.yaml" command="load" />
         <rosparam file="$(find robot1_nav)/params/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find robot1_nav)/params/global_costmap_params.yaml" command="load" /> 
         <rosparam file="$(find robot1_nav)/params/base_local_planner_params.yaml" command="load" />

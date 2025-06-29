@@ -9,5 +9,5 @@ global_costmap:
   inflation_radius: 0.2
   transform_tolerance: 0.5
 
-  width: 100 
-  height: 100
+  width: 100.0 
+  height: 100.0

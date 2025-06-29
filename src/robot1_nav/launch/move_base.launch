@@ -11,6 +11,7 @@
     <include file="$(find robot1_nav)/launch/amcl_nav.launch" />
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <param name="base_global_planner" value="navfn/NavfnROS" /> <!-- ✅ Add this -->
         <remap from="/cmd_vel" to="/hoverboard_velocity_controller/cmd_vel"/>
         <param name="planner_frequency" value="1.0" />
         <param name="controller_frequency" value="10.0" />
@@ -25,5 +26,6 @@
         <rosparam file="$(find robot1_nav)/params/global_costmap_params.yaml" command="load" /> 
         <rosparam file="$(find robot1_nav)/params/base_local_planner_params.yaml" command="load" />
     </node>
+
 
 </launch> 

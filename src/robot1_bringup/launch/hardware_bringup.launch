@@ -54,7 +54,7 @@
   </node>
 
     <!-- Launch Rosboard-->
-  <!-- <include file="$(find rosboard)/launch/rosboard.launch" /> -->
+  <include file="$(find rosboard)/launch/rosboard.launch" />
 </launch>
 
 

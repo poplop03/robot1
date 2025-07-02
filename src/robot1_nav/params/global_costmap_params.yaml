@@ -8,3 +8,4 @@ global_costmap:
   width: 300.0
   height: 300.0
   transform_tolerance: 1.0
+  inflation_radius: 0.2

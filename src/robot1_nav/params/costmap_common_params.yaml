@@ -1,5 +1,5 @@
-obstacle_range: 5
-raytrace_range: 8
+obstacle_range: 5 #nes
+raytrace_range: 8 #bat dau tinh
 footprint: [[-0.32, -0.27], [-0.32, 0.27], [0.32, 0.27], [0.32, -0.27]]
 
 

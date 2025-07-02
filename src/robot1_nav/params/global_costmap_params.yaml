@@ -9,3 +9,4 @@ global_costmap:
   height: 300.0
   transform_tolerance: 1.0
   inflation_radius: 0.2
+  cost_scaling_factor: 20

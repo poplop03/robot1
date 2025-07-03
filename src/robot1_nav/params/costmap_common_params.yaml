@@ -6,7 +6,7 @@ footprint: [[-0.32, -0.27], [-0.32, 0.27], [0.32, 0.27], [0.32, -0.27]]
 observation_sources: scan
 scan:
   data_type: LaserScan
-  topic: scan_front180
+  topic: depth_scan_kinect
   marking: true
   clearing: true
 map_type: costmap

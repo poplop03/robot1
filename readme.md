@@ -12,6 +12,27 @@
 ### Hardware setup:
 ![signal connection](/docs/pics/signal.png)
 
+### install these package to run hoverboard controller or you can just run the `installallpack.sh` for automatically install all of these package:
+```
+sudo apt install ros-noetic-rosparam-shortcuts
+sudo apt install qt5-default
+sudo apt install ros-noetic-tf
+sudo apt install ros-noetic-hardware-interface
+sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers
+sudo apt install ros-noetic-controller-manager
+sudo apt install ros-noetic-cv-bridge
+sudo apt install ros-noetic-image-transport
+sudo apt install ros-noetic-laser-geometry
+sudo apt install ros-noetic-ros-controllers
+```
+
+### Check out these URL for original hardware interface:
+- https://github.com/hoverboard-robotics/hoverboard-driver (hoverboard_driver ROS node)
+- https://github.com/EFeru/hoverboard-firmware-hack-FOC (hoverboard_driver firmware)
+- https://wiki.ros.org/ros_imu_bno055 (BNO055 IMU hardware interface)
+- https://github.com/Shivam-Kumar-1/ros-noetic-kinectv1-setup (Kinect 360 ROS1 noetic setup)
+- https://www.yahboom.net/study/YDLIDAR-X3 (ydlidar X3 tutorial from manufacturer) 
+
 #### I strongly recommend using ROS2 as ROS1 is EOL, but you can still use this repo as template for a typical AMR setup, I hope it's support new learner into ROS.
 - The robot the data from robot (acquired with rosbag) can be used to offline SLAM via cartographer.
 - The depth camera act like a high frequency 3D lidar, you can change puplish rate in the launch file. But in navigation mode, the 3d camera is combined with 2d laser scan to create a more reliable 2d lidar data. (as depth camera give more detail of the environment and create a 2d projection on the map)
@@ -19,7 +40,7 @@
 - I built a ROS UI with react. Make sure that the robot and the webserver is run on the same local network: 
 https://github.com/poplop03/react-ui-ros
 
-### Node function is listed below, it's might be helpful.
+### Node function is listed below, it's might be helpful:
 - **Bno055_IMU:** This is a hardware interface between IMU and the ROS system. 
 The data format is defined in sensor_msgs/Imu.msg.
 - **hoverboard_driver:** This is a hardware interface between the hoverboard driver 
@@ -82,29 +103,18 @@ target that stamped to the coordination.
 ![ROS node in mapping mode](/docs/pics/mapping_mode.png)
 ![ROS node in navigation mode](/docs/pics/nav_mode.png)
 
-### Robot hardware setup.
+### Robot transformation tree:
+![tf tree](/docs/pics/tf.png)
+### Sensor fusion evaluation:
+![relative odom](/docs/pics/rel_odom.png)
+![X error](/docs/pics/X_error.png) ![Y error](/docs/pics/Y_error.png)
+### SLAM comparation between Gmapping and cartographer 2D:
+![SLAM result](/docs/pics/gmapping_vs_carto.png)
 
 
 
-### Check out these URL for original hardware interface:
-- https://github.com/hoverboard-robotics/hoverboard-driver (hoverboard_driver ROS node)
-- https://github.com/EFeru/hoverboard-firmware-hack-FOC (hoverboard_driver firmware)
-- https://wiki.ros.org/ros_imu_bno055 (BNO055 IMU hardware interface)
-- https://github.com/Shivam-Kumar-1/ros-noetic-kinectv1-setup (Kinect 360 ROS1 noetic setup)
-- https://www.yahboom.net/study/YDLIDAR-X3 (ydlidar X3 tutorial from manufacturer) 
 
-### install these package to run hoverboard controller or you can just run the `installallpack.sh` for automatically install all of these package:
 
-```
-sudo apt install ros-noetic-rosparam-shortcuts
-sudo apt install qt5-default
-sudo apt install ros-noetic-tf
-sudo apt install ros-noetic-hardware-interface
-sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers
-sudo apt install ros-noetic-controller-manager
-sudo apt install ros-noetic-cv-bridge
-sudo apt install ros-noetic-image-transport
-sudo apt install ros-noetic-laser-geometry
-sudo apt install ros-noetic-ros-controllers
-```
+
+
 

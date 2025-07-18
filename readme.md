@@ -60,7 +60,20 @@ which is describing the robot current position referenced to the origin. It
 simultaneously localization and creating the map of the current environment.
 - ros_bridge_server: this node is a standard package of ROS, it is a transport layer 
 from web-based application protocol like websocket to ROS system. It’s a 
-translator from JSON data to ROS specific message. 
+translator from JSON data to ROS specific message.
+- Navigation_stack: This node is a combination of a set of planning algorithms 
+with the input is the target position, the current estimated robot pose in relative 
+to the map frame, the map is loaded in to the stack through map_server
+- save_pose_send_goal: This node exposing 2 service and a parameters:
+-   ~/save_pose_send_goal/save_pose: Saving the current pose of the robot in the 
+map.
+-   ~/save_pose_send_goal /send_goal : For sending goal to a predefined position.
+-   ~/save_pose_send_goal/list_poses: This services is triggered by the webUI for 
+listing out all current predefined location.
+-   ~/save_pose_send_goal/target_name: The webUI will input the name for the 
+target that stamped to the coordination.
+![ROS node in mapping mode](/docs/pics/mapping_mode.png)
+![ROS node in navigation mode](/docs/pics/nav_mode.png)
 
 ### Check out these URL for original hardware interface:
 - https://github.com/hoverboard-robotics/hoverboard-driver (hoverboard_driver ROS node)

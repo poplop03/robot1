@@ -1,5 +1,9 @@
 # This repo is a ROS1 fully working autonomous AMR.
-### The robot is used with these sensors: Bno055 IMU, ydlidar X3 lidar, hoverboard_driver controller, Kinect depth camera.
+### The robot is used with these sensors:
+- Bno055 IMU
+- ydlidar X3 lidar 
+- hoverboard_driver controller
+- Kinect depth camera.
 
 
 

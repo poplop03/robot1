@@ -106,6 +106,7 @@ target that stamped to the coordination.
 ### Robot transformation tree:
 ![tf tree](/docs/pics/tf.png)
 ### Sensor fusion evaluation:
+the robot is moving in an area around 720 meters square from starting point and loop closed at the origin. The test is conducted at 0.2m/s, 0.4m/s, 0.6m/s, 0.8m/s.
 ![relative odom](/docs/pics/rel_odom.png)
 ![X error](/docs/pics/X_error.png) ![Y error](/docs/pics/Y_error.png)
 ### SLAM comparation between Gmapping and cartographer 2D:

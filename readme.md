@@ -4,6 +4,13 @@
 - ydlidar X3 lidar.
 - hoverboard_driver controller.
 - Kinect depth camera.
+### System overview
+![robot](/docs/pics/robot.png)
+![system overview](/docs/pics/sys_ovw.png)
+### Mobile robot have these typical challenge:
+![amr challenge](/docs/pics/amr_challenge.png)
+### Hardware setup:
+![signal connection](/docs/pics/signal.png)
 
 #### I strongly recommend using ROS2 as ROS1 is EOL, but you can still use this repo as template for a typical AMR setup, I hope it's support new learner into ROS.
 - The robot the data from robot (acquired with rosbag) can be used to offline SLAM via cartographer.
@@ -74,6 +81,10 @@ listing out all current predefined location.
 target that stamped to the coordination.
 ![ROS node in mapping mode](/docs/pics/mapping_mode.png)
 ![ROS node in navigation mode](/docs/pics/nav_mode.png)
+
+### Robot hardware setup.
+
+
 
 ### Check out these URL for original hardware interface:
 - https://github.com/hoverboard-robotics/hoverboard-driver (hoverboard_driver ROS node)

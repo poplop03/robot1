@@ -4,7 +4,7 @@
 - ydlidar X3 lidar.
 - hoverboard_driver controller.
 - Kinect depth camera.
-### System overview
+### System overview:
 ![robot](/docs/pics/robot.png)
 ![system overview](/docs/pics/sys_ovw.png)
 ### Mobile robot have these typical challenge:

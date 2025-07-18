@@ -4,7 +4,9 @@
 - ydlidar X3 lidar.
 - hoverboard_driver controller.
 - Kinect depth camera.
-I strongly recommend using ROS2 as ROS1 is EOL, but you can still use this repo as template for a typical AMR setup, i hope it's support new learner into ROS.
+
+#### I strongly recommend using ROS2 as ROS1 is EOL, but you can still use this repo as template for a typical AMR setup, i hope it's support new learner into ROS.
+
 ### Check out these URL for original hardware interface:
 - https://github.com/hoverboard-robotics/hoverboard-driver (hoverboard_driver ROS node)
 - https://github.com/EFeru/hoverboard-firmware-hack-FOC (hoverboard_driver firmware)

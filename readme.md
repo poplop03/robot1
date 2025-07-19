@@ -34,7 +34,7 @@ sudo apt install ros-noetic-ros-controllers
 - https://www.yahboom.net/study/YDLIDAR-X3 (ydlidar X3 tutorial from manufacturer) 
 
 #### I strongly recommend using ROS2 as ROS1 is EOL, but you can still use this repo as template for a typical AMR setup, I hope it's support new learner into ROS.
-- The robot the data from robot (acquired with rosbag) can be used to offline SLAM via cartographer.
+- The robot data (acquired with rosbag) can be used to offline SLAM via cartographer.
 - The depth camera act like a high frequency 3D lidar, you can change puplish rate in the launch file. But in navigation mode, the 3d camera is combined with 2d laser scan to create a more reliable 2d lidar data. (as depth camera give more detail of the environment and create a 2d projection on the map)
 - Sensor fusion is handled by `robot_localization` package, check `/robot_localization/params/sensor_fuse_config.yaml` and `/robot_localization/launch/sensor_fuse.launch` for detail configuration. This package providing realtive position of the robot with the fusion of IMU and wheel odometry.
 - I built a ROS UI with react. Make sure that the robot and the webserver is run on the same local network: 
